@@ -17,7 +17,8 @@ enum AttackState {
 @onready var hurtbox = $Hurtbox
 @onready var timer = $Timer
 @onready var attack_state = AttackState.IDLE
-@onready var sprite = $Sprite2D
+@onready var animation_player = $AnimationPlayer
+@onready var animated_sprite = $AnimatedSprite2D
 
 var base_order = [AttackState.ROLL, AttackState.JUMP, AttackState.DASH]
 var attack_direction = 1
@@ -26,6 +27,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var was_on_floor = false
 
 func _ready() -> void:
+	animation_player.play("idle")
 	hurtbox.area_entered.connect(_on_player_collision)
 	timer.wait_time = 3.5
 	timer.one_shot = false
@@ -109,9 +111,9 @@ func setup_attack_timer(time):
 	attack_timer.start()
 
 func flash_white():
-	sprite.modulate = Color(10, 10, 10, 10)
+	animated_sprite.modulate = Color(10, 10, 10, 10)
 	await get_tree().create_timer(0.1).timeout
-	sprite.modulate = Color(1, 1, 1, 1)
+	animated_sprite.modulate = Color(1, 1, 1, 1)
 
 func enemy_take_damage(amount):
 	flash_white()
