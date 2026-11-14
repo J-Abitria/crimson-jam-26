@@ -10,6 +10,8 @@ enum AttackDirection {
 @export var jump_speed = -800
 
 @onready var animation_sprite = $AnimatedSprite2D
+@onready var collision_shape = $CollisionShape2D
+@onready var collision_start_pos = collision_shape.position
 @onready var attack_direction = AttackDirection.HORIZONTAL
 @onready var previous_direction = attack_direction
 
@@ -41,14 +43,21 @@ func _physics_process(delta: float) -> void:
 
 func _on_animation_finished():
 	print("Animation done")
-	if animation_sprite.animation == "horizontal-attack":
-		animation_sprite.play("idle")
+
+	match(animation_sprite.animation):
+		"down-attack":
+			animation_sprite.offset -= Vector2(-8, 6)
+		"up-attack":
+			animation_sprite.offset -= Vector2(-7, -5)
+
+	animation_sprite.play("idle")
 
 func get_movement_input():
 	var input_direction = Input.get_axis("move_left", "move_right")
 	
 	if not is_zero_approx(input_direction) and not animation_sprite.animation.ends_with("attack"):
 		animation_sprite.scale.x = input_direction
+		animation_sprite.offset = Vector2.ZERO if input_direction == 1 else Vector2(14, 0)
 
 	# Uses in the in-built character velocity to determine the direction the player should move.
 	velocity.x = input_direction * speed
@@ -81,8 +90,11 @@ func choose_attack_animation():
 	if animation_sprite.animation.ends_with("attack"):
 		return
 
-	match(attack_direction):
-		AttackDirection.HORIZONTAL:
-			animation_sprite.play("horizontal-attack")
-		_:
-			print("Not a recognized direction")
+	if attack_direction == AttackDirection.HORIZONTAL:
+		animation_sprite.play("horizontal-attack")
+	elif attack_direction == AttackDirection.UP:
+		animation_sprite.offset += Vector2(-7, -5)
+		animation_sprite.play("up-attack")
+	elif attack_direction == AttackDirection.DOWN and not is_on_floor():
+		animation_sprite.offset += Vector2(-8, 6)
+		animation_sprite.play("down-attack")
