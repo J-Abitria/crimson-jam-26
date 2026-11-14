@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://kkpcl7v8yqlh"]
+
+[ext_resource type="Texture2D" uid="uid://derb525q4oa20" path="res://Assets/Sprites/Border.png" id="1_ujjr2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(32, 32)
+
+[node name="BorderSprite" type="Sprite2D" unique_id=778912983]
+texture_filter = 1
+texture = ExtResource("1_ujjr2")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=638148508]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=508376426]
+shape = SubResource("RectangleShape2D_g4v7s")
