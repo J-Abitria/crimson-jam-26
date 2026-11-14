@@ -11,11 +11,13 @@ enum AttackState {
 @export var jump_horizontal_speed = 600
 @export var jump_vertical_speed = -900
 @export var dash_speed = 400
+@export var health = 500
 
 @onready var attack_timer = $AttackTimer
 @onready var hurtbox = $Hurtbox
 @onready var timer = $Timer
 @onready var attack_state = AttackState.IDLE
+@onready var sprite = $Sprite2D
 
 var base_order = [AttackState.ROLL, AttackState.JUMP, AttackState.DASH]
 var attack_direction = 1
@@ -105,3 +107,16 @@ func setup_attack_timer(time):
 	attack_timer.wait_time = time
 	attack_timer.one_shot = true
 	attack_timer.start()
+
+func flash_white():
+	sprite.modulate = Color(10, 10, 10, 10)
+	await get_tree().create_timer(0.1).timeout
+	sprite.modulate = Color(1, 1, 1, 1)
+
+func enemy_take_damage(amount):
+	flash_white()
+	health -= amount
+
+func check_enemy_death():
+	if health <= 0:
+		queue_free()

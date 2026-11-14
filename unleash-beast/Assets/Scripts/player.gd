@@ -28,6 +28,10 @@ func _ready():
 	animation_player.play("idle")
 	animation_player.animation_finished.connect(_on_animation_finished)
 
+	var hitboxes = hitbox_pivot.get_children()
+	for hitbox_area in hitboxes:
+		hitbox_area.body_entered.connect(_on_enemy_collision)
+
 	invincibility_timer.wait_time = 2
 	invincibility_timer.one_shot = true
 	invincibility_timer.timeout.connect(_on_invincibility_timeout)
@@ -57,6 +61,9 @@ func _on_animation_finished(anim_name: String):
 
 	if anim_name.ends_with("attack"):
 		animation_player.play("idle")
+
+func _on_enemy_collision(body):
+	body.enemy_take_damage(5)
 
 func _on_invincibility_timeout():
 	collision_shape.disabled = false
