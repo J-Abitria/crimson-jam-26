@@ -57,7 +57,7 @@ script = ExtResource("3_sjsww")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_yf5fn")
 animation = &"idle"
-frame_progress = 0.14401005
+frame_progress = 0.48174694
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1313480017]
 position = Vector2(-6.9999995, 2.6666665)
