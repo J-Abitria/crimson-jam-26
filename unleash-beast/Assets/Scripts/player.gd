@@ -6,6 +6,8 @@ enum AttackDirection {
 	HORIZONTAL
 }
 
+signal died
+
 @export var speed = 500
 @export var jump_speed = -800
 @export var health = 10
@@ -116,4 +118,7 @@ func take_damage():
 
 func check_death():
 	if health == 0:
+		invincibility_timer.stop()
+		died.emit()
+		await get_tree().create_timer(1).timeout
 		get_tree().change_scene_to_file("res://death_screen.tscn")
