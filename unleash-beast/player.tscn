@@ -162,7 +162,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("HitboxDown:monitoring")
+tracks/3/path = NodePath("HitboxPivot/HitboxDown:monitoring")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -174,7 +174,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("HitboxDown:monitorable")
+tracks/4/path = NodePath("HitboxPivot/HitboxDown:monitorable")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -186,7 +186,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("HitboxDown:visible")
+tracks/5/path = NodePath("HitboxPivot/HitboxDown:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -198,7 +198,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("HitboxHorizontal:visible")
+tracks/6/path = NodePath("HitboxPivot/HitboxHorizontal:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -210,7 +210,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("HitboxHorizontal:monitoring")
+tracks/7/path = NodePath("HitboxPivot/HitboxHorizontal:monitoring")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -222,10 +222,46 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("HitboxHorizontal:monitorable")
+tracks/8/path = NodePath("HitboxPivot/HitboxHorizontal:monitorable")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("HitboxPivot/HitboxUp:monitoring")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("HitboxPivot/HitboxUp:monitorable")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("HitboxPivot/HitboxUp:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -274,7 +310,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("HitboxDown:monitoring")
+tracks/3/path = NodePath("HitboxPivot/HitboxDown:monitoring")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -286,7 +322,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("HitboxDown:monitorable")
+tracks/4/path = NodePath("HitboxPivot/HitboxDown:monitorable")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -298,7 +334,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("HitboxDown:visible")
+tracks/5/path = NodePath("HitboxPivot/HitboxDown:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -350,7 +386,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("HitboxHorizontal:visible")
+tracks/3/path = NodePath("HitboxPivot/HitboxHorizontal:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -362,7 +398,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("HitboxHorizontal:monitoring")
+tracks/4/path = NodePath("HitboxPivot/HitboxHorizontal:monitoring")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -374,7 +410,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("HitboxHorizontal:monitorable")
+tracks/5/path = NodePath("HitboxPivot/HitboxHorizontal:monitorable")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -464,6 +500,42 @@ tracks/2/keys = {
 "update": 1,
 "values": [&"up-attack"]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HitboxPivot/HitboxUp:monitoring")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.12099999, 0.287),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HitboxPivot/HitboxUp:monitorable")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.12099999, 0.287),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HitboxPivot/HitboxUp:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.12099999, 0.287),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pbaqw"]
 _data = {
@@ -477,6 +549,8 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_57qmd"]
 
 [node name="Player" type="CharacterBody2D" unique_id=889811035]
 scale = Vector2(3, 3)
@@ -495,41 +569,63 @@ shape = SubResource("CapsuleShape2D_g4v7s")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1880706644]
 libraries/ = SubResource("AnimationLibrary_pbaqw")
 
-[node name="HitboxDown" type="Area2D" parent="." unique_id=665129098]
+[node name="HitboxPivot" type="Node2D" parent="." unique_id=575008506]
+
+[node name="HitboxDown" type="Area2D" parent="HitboxPivot" unique_id=665129098]
 visible = false
 monitoring = false
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxDown" unique_id=876891345]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxPivot/HitboxDown" unique_id=876891345]
 position = Vector2(-27, 16.666668)
 shape = SubResource("CircleShape2D_g4v7s")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="HitboxDown" unique_id=93413469]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HitboxPivot/HitboxDown" unique_id=93413469]
 position = Vector2(-14.333334, 22.666668)
 scale = Vector2(0.70243114, 0.70243114)
 shape = SubResource("CircleShape2D_g4v7s")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="HitboxDown" unique_id=1486668006]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="HitboxPivot/HitboxDown" unique_id=1486668006]
 position = Vector2(-4.666667, 22.999996)
 scale = Vector2(0.6138917, 0.6138917)
 shape = SubResource("CircleShape2D_g4v7s")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="HitboxDown" unique_id=820926249]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="HitboxPivot/HitboxDown" unique_id=820926249]
 position = Vector2(3.3333333, 19.333336)
 scale = Vector2(0.6715067, 0.6715067)
 shape = SubResource("CircleShape2D_g4v7s")
 
-[node name="HitboxHorizontal" type="Area2D" parent="." unique_id=919433958]
+[node name="HitboxHorizontal" type="Area2D" parent="HitboxPivot" unique_id=919433958]
 visible = false
 monitoring = false
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxHorizontal" unique_id=532768313]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxPivot/HitboxHorizontal" unique_id=532768313]
 position = Vector2(16, 9.666667)
 scale = Vector2(1.1214597, 1.1214597)
 shape = SubResource("CircleShape2D_yf5fn")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="HitboxHorizontal" unique_id=2138275916]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HitboxPivot/HitboxHorizontal" unique_id=2138275916]
 position = Vector2(18.666666, -5.6666665)
 scale = Vector2(1.5663359, 1.5663359)
 shape = SubResource("CircleShape2D_yf5fn")
+
+[node name="HitboxUp" type="Area2D" parent="HitboxPivot" unique_id=1479143396]
+visible = false
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxPivot/HitboxUp" unique_id=1117540539]
+position = Vector2(-24.000006, -18)
+scale = Vector2(1.2471867, 1.2471867)
+shape = SubResource("CircleShape2D_57qmd")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HitboxPivot/HitboxUp" unique_id=1642078203]
+position = Vector2(-8, -20.66667)
+scale = Vector2(0.9455409, 0.9455409)
+shape = SubResource("CircleShape2D_57qmd")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="HitboxPivot/HitboxUp" unique_id=339529513]
+position = Vector2(6.000002, -17.666668)
+scale = Vector2(0.8940476, 0.8940476)
+shape = SubResource("CircleShape2D_57qmd")

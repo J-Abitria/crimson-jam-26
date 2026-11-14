@@ -12,6 +12,7 @@ enum AttackDirection {
 @onready var animation_player = $AnimationPlayer
 @onready var animation_sprite = $AnimatedSprite2D
 @onready var collision_shape = $CollisionShape2D
+@onready var hitbox_pivot = $HitboxPivot
 @onready var collision_start_pos = collision_shape.position
 @onready var attack_direction = AttackDirection.HORIZONTAL
 @onready var previous_direction = attack_direction
@@ -53,7 +54,9 @@ func get_movement_input():
 	
 	if not is_zero_approx(input_direction) and not animation_player.current_animation.ends_with("attack"):
 		animation_sprite.scale.x = input_direction
+		hitbox_pivot.scale.x = input_direction
 		animation_sprite.position = Vector2.ZERO if input_direction == 1 else Vector2(-14, 0)
+		hitbox_pivot.position = Vector2.ZERO if input_direction == 1 else Vector2(-14, 0)
 
 	# Uses in the in-built character velocity to determine the direction the player should move.
 	velocity.x = input_direction * speed
