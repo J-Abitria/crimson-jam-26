@@ -18,16 +18,20 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
 	animation_sprite.play("idle")
+	animation_sprite.animation_finished.connect(_on_animation_finished)
 
 func _process(_delta: float) -> void:
 	get_aiming_input()
 	log_attack_direction()
 
+	if Input.is_action_just_pressed("attack") and animation_sprite.animation != "horizontal-attack":
+		animation_sprite.play("horizontal-attack")
+
 func _physics_process(delta: float) -> void:
 	get_movement_input()
 
 	if not is_on_floor():
-		var gravityMultiplier = 3 if not Input.is_action_pressed("jump") or velocity.y > 0 else 1
+		var gravityMultiplier = 3 if not Input.is_action_pressed("jump") or velocity.y > -200 else 1
 		velocity.y += gravityMultiplier * gravity * delta
 			
 	
@@ -35,6 +39,11 @@ func _physics_process(delta: float) -> void:
 		velocity.y = jump_speed
 
 	move_and_slide()
+
+func _on_animation_finished():
+	print("Animation done")
+	if animation_sprite.animation == "horizontal-attack":
+		animation_sprite.play("idle")
 
 func get_movement_input():
 	var input_direction = Input.get_axis("move_left", "move_right")

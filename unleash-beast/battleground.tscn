@@ -30,12 +30,6 @@ animations = [{
 "texture": ExtResource("4_e84sg")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_e84sg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_jwfr2")
-}, {
-"duration": 1.0,
 "texture": ExtResource("5_jwfr2")
 }, {
 "duration": 1.0,
@@ -46,16 +40,13 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("6_pogui")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_t60x0")
 }, {
 "duration": 1.0,
 "texture": ExtResource("7_t60x0")
 }],
 "loop": 0,
 "name": &"horizontal-attack",
-"speed": 18.0
+"speed": 21.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -91,7 +82,7 @@ script = ExtResource("3_sjsww")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_yf5fn")
 animation = &"horizontal-attack"
-frame = 9
+frame = 6
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1313480017]
