@@ -12,6 +12,7 @@ enum AttackDirection {
 
 @onready var animation_player = $AnimationPlayer
 @onready var animation_sprite = $AnimatedSprite2D
+@onready var camera = $"../Camera2D"
 @onready var collision_shape = $Hurtbox/CollisionShape2D
 @onready var hitbox_pivot = $HitboxPivot
 @onready var invincibility_timer = $InvincibilityTimer
@@ -109,6 +110,8 @@ func take_damage():
 	collision_shape.disabled = true
 	health -= 1
 	check_death()
+
+	camera.apply_shake(10.0)
 	invincibility_timer.start()
 
 func check_death():

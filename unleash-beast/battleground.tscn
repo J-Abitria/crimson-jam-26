@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://cn0gjyq5filo"]
 
 [ext_resource type="PackedScene" uid="uid://dxejic1hhlcwu" path="res://background.tscn" id="1_66gel"]
+[ext_resource type="Script" uid="uid://dyqusjjdxn4je" path="res://Assets/Scripts/camera.gd" id="1_sjsww"]
 [ext_resource type="PackedScene" uid="uid://kkpcl7v8yqlh" path="res://border.tscn" id="2_ildd2"]
 [ext_resource type="PackedScene" uid="uid://dctcrt5m1dqvq" path="res://player.tscn" id="3_ildd2"]
 [ext_resource type="Script" uid="uid://mm3vbql4brua" path="res://Assets/Scripts/twin.gd" id="4_pmmbh"]
@@ -16,6 +17,10 @@ tile_size = Vector2i(32, 32)
 sources/1 = SubResource("TileSetScenesCollectionSource_t5hr7")
 
 [node name="Battleground" type="Node2D" unique_id=971398247]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=661351914]
+position = Vector2(580, 320)
+script = ExtResource("1_sjsww")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1399017042]
 position = Vector2(232, 231)
@@ -33,5 +38,3 @@ script = ExtResource("4_pmmbh")
 
 [node name="Player" parent="." unique_id=889811035 instance=ExtResource("3_ildd2")]
 position = Vector2(614, 535)
-speed = 500
-jump_speed = -800
