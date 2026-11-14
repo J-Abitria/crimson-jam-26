@@ -23,7 +23,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var was_on_floor = false
 
 func _ready() -> void:
-	timer.wait_time = 5
+	timer.wait_time = 3.5
 	timer.one_shot = false
 	timer.timeout.connect(_on_timer_timeout)
 	attack_timer.timeout.connect(_on_attack_timer_timeout)
@@ -45,6 +45,7 @@ func _on_timer_timeout():
 	if num_attacks < 3:
 		attack_state = base_order[num_attacks]
 	else:
+		timer.wait_time = randf_range(2, 3.5)
 		attack_state = base_order[randi() % 3]
 
 	num_attacks += 1
