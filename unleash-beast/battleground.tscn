@@ -146,6 +146,18 @@ tracks/0/keys = {
 "update": 1,
 "values": []
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_jf5ul"]
 resource_name = "horizontal-attack"
@@ -169,16 +181,103 @@ tracks/1/path = NodePath("AnimatedSprite2D:offset")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": []
+"values": [Vector2(-8, 6)]
+}
+
+[sub_resource type="Animation" id="Animation_pbaqw"]
+resource_name = "horizontal-attack"
+length = 0.33
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.046999995, 0.09399999, 0.141, 0.18799998, 0.23499998, 0.282),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_fgihj"]
+resource_name = "idle"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ha7fu"]
+resource_name = "up-attack"
+length = 0.33
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.041, 0.082, 0.122999996, 0.164, 0.20499998, 0.24599999, 0.287, 0.33),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-7, -5)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pbaqw"]
 _data = {
 &"RESET": SubResource("Animation_f6vvn"),
-&"down-attack": SubResource("Animation_jf5ul")
+&"down-attack": SubResource("Animation_jf5ul"),
+&"horizontal-attack": SubResource("Animation_pbaqw"),
+&"idle": SubResource("Animation_fgihj"),
+&"up-attack": SubResource("Animation_ha7fu")
 }
 
 [node name="Battleground" type="Node2D" unique_id=971398247]
@@ -197,10 +296,8 @@ script = ExtResource("3_sjsww")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=748986944]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_yf5fn")
-animation = &"down-attack"
+animation = &"up-attack"
 frame = 7
-speed_scale = 3.0
-offset = Vector2(-8, 6)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1313480017]
 position = Vector2(-6.9999995, 3.333333)
