@@ -8,11 +8,13 @@ enum AttackDirection {
 
 @export var speed = 500
 @export var jump_speed = -800
+@export var health = 10
 
 @onready var animation_player = $AnimationPlayer
 @onready var animation_sprite = $AnimatedSprite2D
-@onready var collision_shape = $CollisionShape2D
+@onready var collision_shape = $Hurtbox/CollisionShape2D
 @onready var hitbox_pivot = $HitboxPivot
+@onready var invincibility_timer = $InvincibilityTimer
 @onready var collision_start_pos = collision_shape.position
 @onready var attack_direction = AttackDirection.HORIZONTAL
 @onready var previous_direction = attack_direction
@@ -22,6 +24,10 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _ready():
 	animation_player.play("idle")
 	animation_player.animation_finished.connect(_on_animation_finished)
+
+	invincibility_timer.wait_time = 2
+	invincibility_timer.one_shot = true
+	invincibility_timer.timeout.connect(_on_invincibility_timeout)
 
 func _process(_delta: float) -> void:
 	get_aiming_input()
@@ -48,6 +54,9 @@ func _on_animation_finished(anim_name: String):
 
 	if anim_name.ends_with("attack"):
 		animation_player.play("idle")
+
+func _on_invincibility_timeout():
+	collision_shape.disabled = false
 
 func get_movement_input():
 	var input_direction = Input.get_axis("move_left", "move_right")
@@ -95,3 +104,13 @@ func choose_attack_animation():
 		animation_player.play("up-attack")
 	elif attack_direction == AttackDirection.DOWN and not is_on_floor():
 		animation_player.play("down-attack")
+
+func take_damage():
+	collision_shape.disabled = true
+	health -= 1
+	check_death()
+	invincibility_timer.start()
+
+func check_death():
+	if health == 0:
+		get_tree().change_scene_to_file("res://death_screen.tscn")

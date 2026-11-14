@@ -563,6 +563,7 @@ sprite_frames = SubResource("SpriteFrames_yf5fn")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1637132289]
+visible = false
 position = Vector2(-6.9999995, 3.333333)
 scale = Vector2(0.41362867, 0.8533301)
 shape = SubResource("CapsuleShape2D_g4v7s")
@@ -636,3 +637,14 @@ shape = SubResource("CircleShape2D_57qmd")
 position = Vector2(6.000002, -17.666668)
 scale = Vector2(0.8940476, 0.8940476)
 shape = SubResource("CircleShape2D_57qmd")
+
+[node name="InvincibilityTimer" type="Timer" parent="." unique_id=989659052]
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=496043345]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1864103216]
+position = Vector2(-7, 3.333)
+scale = Vector2(0.414, 0.853)
+shape = SubResource("CapsuleShape2D_g4v7s")

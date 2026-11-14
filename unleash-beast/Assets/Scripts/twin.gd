@@ -13,6 +13,7 @@ enum AttackState {
 @export var dash_speed = 400
 
 @onready var attack_timer = $AttackTimer
+@onready var hurtbox = $Hurtbox
 @onready var timer = $Timer
 @onready var attack_state = AttackState.IDLE
 
@@ -23,6 +24,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var was_on_floor = false
 
 func _ready() -> void:
+	hurtbox.area_entered.connect(_on_player_collision)
 	timer.wait_time = 3.5
 	timer.one_shot = false
 	timer.timeout.connect(_on_timer_timeout)
@@ -56,6 +58,9 @@ func _on_attack_timer_timeout():
 		attack_state = AttackState.IDLE
 	else:
 		velocity = Vector2(attack_direction * roll_speed, dash_speed)
+
+func _on_player_collision(area_entered):
+	area_entered.get_parent().take_damage.call_deferred()
 
 func check_cancel_attack():
 	if attack_state == AttackState.IDLE:

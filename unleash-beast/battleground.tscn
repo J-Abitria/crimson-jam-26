@@ -33,3 +33,5 @@ script = ExtResource("4_pmmbh")
 
 [node name="Player" parent="." unique_id=889811035 instance=ExtResource("3_ildd2")]
 position = Vector2(614, 535)
+speed = 500
+jump_speed = -800
