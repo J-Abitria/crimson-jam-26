@@ -3,31 +3,38 @@ extends CharacterBody2D
 enum AttackDirection {
 	UP,
 	DOWN,
-	LEFT,
-	RIGHT
+	HORIZONTAL
 }
 
 @export var speed = 500
 @export var jump_speed = -800
 
+@onready var animation_player = $AnimationPlayer
 @onready var animation_sprite = $AnimatedSprite2D
-@onready var attack_direction = AttackDirection.RIGHT
+@onready var collision_shape = $CollisionShape2D
+@onready var hitbox_pivot = $HitboxPivot
+@onready var collision_start_pos = collision_shape.position
+@onready var attack_direction = AttackDirection.HORIZONTAL
 @onready var previous_direction = attack_direction
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
-	animation_sprite.play("idle")
+	animation_player.play("idle")
+	animation_player.animation_finished.connect(_on_animation_finished)
 
 func _process(_delta: float) -> void:
 	get_aiming_input()
 	log_attack_direction()
 
+	if Input.is_action_just_pressed("attack"):
+		choose_attack_animation()
+
 func _physics_process(delta: float) -> void:
 	get_movement_input()
 
 	if not is_on_floor():
-		var gravityMultiplier = 3 if not Input.is_action_pressed("jump") or velocity.y > 0 else 1
+		var gravityMultiplier = 3 if not Input.is_action_pressed("jump") or velocity.y > -200 else 1
 		velocity.y += gravityMultiplier * gravity * delta
 			
 	
@@ -36,8 +43,20 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
+func _on_animation_finished(anim_name: String):
+	print("Animation done")
+
+	if anim_name.ends_with("attack"):
+		animation_player.play("idle")
+
 func get_movement_input():
 	var input_direction = Input.get_axis("move_left", "move_right")
+	
+	if not is_zero_approx(input_direction) and not animation_player.current_animation.ends_with("attack"):
+		animation_sprite.scale.x = input_direction
+		hitbox_pivot.scale.x = input_direction
+		animation_sprite.position = Vector2.ZERO if input_direction == 1 else Vector2(-14, 0)
+		hitbox_pivot.position = Vector2.ZERO if input_direction == 1 else Vector2(-14, 0)
 
 	# Uses in the in-built character velocity to determine the direction the player should move.
 	velocity.x = input_direction * speed
@@ -48,9 +67,7 @@ func get_aiming_input():
 	if not is_zero_approx(vertical_aim):
 		attack_direction = AttackDirection.UP if vertical_aim == 1 else AttackDirection.DOWN
 	else:
-		var horizontal_aim = Input.get_axis("move_left", "move_right")
-
-		attack_direction = AttackDirection.LEFT if horizontal_aim < 0 else AttackDirection.RIGHT
+		attack_direction = AttackDirection.HORIZONTAL
 
 func log_attack_direction():
 	if attack_direction == previous_direction:
@@ -62,10 +79,19 @@ func log_attack_direction():
 			output = "UP"
 		AttackDirection.DOWN:
 			output = "DOWN"
-		AttackDirection.LEFT:
-			output = "LEFT"
-		AttackDirection.RIGHT:
-			output = "RIGHT"
+		AttackDirection.HORIZONTAL:
+			output = "HORIZONTAL"
 
 	print("Aiming " + output)
 	previous_direction = attack_direction
+
+func choose_attack_animation():
+	if animation_player.current_animation.ends_with("attack"):
+		return
+
+	if attack_direction == AttackDirection.HORIZONTAL:
+		animation_player.play("horizontal-attack")
+	elif attack_direction == AttackDirection.UP:
+		animation_player.play("up-attack")
+	elif attack_direction == AttackDirection.DOWN and not is_on_floor():
+		animation_player.play("down-attack")
