@@ -7,6 +7,8 @@ enum AttackState {
 	IDLE
 }
 
+signal enemy_died
+
 @export var roll_speed = 800
 @export var jump_horizontal_speed = 600
 @export var jump_vertical_speed = -900
@@ -122,7 +124,9 @@ func reset_animation():
 func enemy_take_damage(amount):
 	flash_white()
 	health -= amount
+	check_enemy_death()
 
 func check_enemy_death():
 	if health <= 0:
+		enemy_died.emit()
 		queue_free()

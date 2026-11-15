@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bw38dqreyqam3" path="res://twin.tscn" id="4_t5hr7"]
 [ext_resource type="PackedScene" uid="uid://ckr7tiefkmgeh" path="res://meters.tscn" id="7_q0b7o"]
 [ext_resource type="Script" uid="uid://ckcmoddi46y8c" path="res://Assets/Scripts/fade_out_player.gd" id="7_w7n3p"]
+[ext_resource type="Script" uid="uid://bo8nntck2fwst" path="res://Assets/Scripts/enemy_manager.gd" id="9_tqegg"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_t5hr7"]
 resource_name = "Background"
@@ -96,3 +97,6 @@ color = Color(0, 0, 0, 1)
 [node name="FadeOutPlayer" type="AnimationPlayer" parent="Fade" unique_id=1941641362]
 libraries/ = SubResource("AnimationLibrary_q0b7o")
 script = ExtResource("7_w7n3p")
+
+[node name="EnemyManager" type="Node2D" parent="." unique_id=1216426428]
+script = ExtResource("9_tqegg")
