@@ -73,7 +73,10 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		var gravityMultiplier = 3 if not Input.is_action_pressed("jump") or velocity.y > -200 else 1
 		velocity.y += gravityMultiplier * gravity * delta
-			
+	elif not is_zero_approx(velocity.x) and not animation_player.current_animation.ends_with("attack"):
+		animation_player.play("walk")
+	elif not animation_player.current_animation.ends_with("attack"):
+		animation_player.play("idle")
 	
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_speed
