@@ -9,6 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://ckr7tiefkmgeh" path="res://meters.tscn" id="7_q0b7o"]
 [ext_resource type="Script" uid="uid://ckcmoddi46y8c" path="res://Assets/Scripts/fade_out_player.gd" id="7_w7n3p"]
 [ext_resource type="Script" uid="uid://bo8nntck2fwst" path="res://Assets/Scripts/enemy_manager.gd" id="9_tqegg"]
+[ext_resource type="Script" uid="uid://uueijnbqbhk5" path="res://Assets/Scripts/global_audio.gd" id="10_e84sg"]
+[ext_resource type="AudioStream" uid="uid://bia0ut8jvgcok" path="res://Assets/Sounds/Music/main-theme.wav" id="11_jwfr2"]
+[ext_resource type="Script" uid="uid://c3xuqs7safk1v" path="res://Assets/Scripts/music_player.gd" id="12_pogui"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_t5hr7"]
 resource_name = "Background"
@@ -108,3 +111,12 @@ script = ExtResource("7_w7n3p")
 
 [node name="EnemyManager" type="Node2D" parent="." unique_id=1216426428]
 script = ExtResource("9_tqegg")
+
+[node name="GlobalAudio" type="AudioStreamPlayer" parent="." unique_id=209965308]
+script = ExtResource("10_e84sg")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1499199639]
+stream = ExtResource("11_jwfr2")
+volume_db = -20.0
+autoplay = true
+script = ExtResource("12_pogui")

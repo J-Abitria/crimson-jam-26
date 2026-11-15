@@ -47,6 +47,15 @@
 [ext_resource type="Texture2D" uid="uid://dthwf0t8a8q07" path="res://Assets/Animations/Oni-Walk/Oni-Walk2.png" id="31_xry5e"]
 [ext_resource type="Texture2D" uid="uid://owsmtilor0lu" path="res://Assets/Animations/Oni-Walk/Oni-Walk3.png" id="32_h6w8y"]
 [ext_resource type="Texture2D" uid="uid://dsc417jf1f6g0" path="res://Assets/Animations/Oni-Walk/Oni-Walk4.png" id="33_yem3p"]
+[ext_resource type="AudioStream" uid="uid://b5sdengqel2fj" path="res://Assets/Sounds/Player/SwordSwing.wav" id="48_oybyf"]
+[ext_resource type="AudioStream" uid="uid://ci72ibs77vvlo" path="res://Assets/Sounds/Player/SwordSwing1.wav" id="49_ajfva"]
+[ext_resource type="AudioStream" uid="uid://ds47gsdtptyio" path="res://Assets/Sounds/Player/SwordSwing2.wav" id="50_5ef02"]
+[ext_resource type="AudioStream" uid="uid://duafic7qlovlf" path="res://Assets/Sounds/Player/SwordSwing3.wav" id="51_pfmca"]
+[ext_resource type="AudioStream" uid="uid://ckdisdo2u5xbw" path="res://Assets/Sounds/Player/Hit2.wav" id="52_76oay"]
+[ext_resource type="AudioStream" uid="uid://b12odmk4rqrhu" path="res://Assets/Sounds/Player/Hit3.wav" id="53_b4uyv"]
+[ext_resource type="AudioStream" uid="uid://c7d2m7wdejy8y" path="res://Assets/Sounds/Player/Hit4.wav" id="54_tw8ou"]
+[ext_resource type="AudioStream" uid="uid://wipplqbtclvg" path="res://Assets/Sounds/Player/Hit5.wav" id="55_ygbnx"]
+[ext_resource type="AudioStream" uid="uid://cq5b0eixom4p8" path="res://Assets/Sounds/Player/Rage-End.wav" id="56_b4uyv"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yf5fn"]
 animations = [{
@@ -755,6 +764,18 @@ tracks/4/keys = {
 "update": 1,
 "values": [false, true, false]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimatedSprite2D:offset")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_tkwlq"]
 resource_name = "oni-idle"
@@ -1124,6 +1145,20 @@ _data = {
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_57qmd"]
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_g4v7s"]
+streams_count = 4
+stream_0/stream = ExtResource("48_oybyf")
+stream_1/stream = ExtResource("49_ajfva")
+stream_2/stream = ExtResource("50_5ef02")
+stream_3/stream = ExtResource("51_pfmca")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_yf5fn"]
+streams_count = 4
+stream_0/stream = ExtResource("52_76oay")
+stream_1/stream = ExtResource("53_b4uyv")
+stream_2/stream = ExtResource("54_tw8ou")
+stream_3/stream = ExtResource("55_ygbnx")
+
 [node name="Player" type="CharacterBody2D" unique_id=889811035]
 scale = Vector2(3, 3)
 collision_layer = 2
@@ -1234,3 +1269,12 @@ collision_mask = 0
 position = Vector2(-7, 3.333)
 scale = Vector2(0.414, 0.853)
 shape = SubResource("CapsuleShape2D_g4v7s")
+
+[node name="SwordAudioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1655275804]
+stream = SubResource("AudioStreamRandomizer_g4v7s")
+
+[node name="HurtAudioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1022518647]
+stream = SubResource("AudioStreamRandomizer_yf5fn")
+
+[node name="RageEndAudioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1067235898]
+stream = ExtResource("56_b4uyv")

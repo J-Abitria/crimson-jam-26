@@ -21,6 +21,7 @@ signal enemy_died
 @onready var attack_state = AttackState.IDLE
 @onready var animation_player = $AnimationPlayer
 @onready var animated_sprite = $AnimatedSprite2D
+@onready var audio_player = $AudioStreamPlayer2D
 
 var base_order = [AttackState.ROLL, AttackState.JUMP, AttackState.DASH]
 var attack_direction = 1
@@ -30,6 +31,7 @@ var was_on_floor = false
 
 func _ready() -> void:
 	animation_player.play("idle")
+	audio_player.volume_db = AudioLevel.sound_effect_volume
 	hurtbox.area_entered.connect(_on_player_collision)
 	timer.wait_time = 4
 	timer.one_shot = false
@@ -130,3 +132,5 @@ func check_enemy_death():
 	if health <= 0:
 		enemy_died.emit()
 		queue_free()
+	else:
+		audio_player.play()

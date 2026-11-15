@@ -22,6 +22,9 @@ signal died
 
 @onready var animation_player = $AnimationPlayer
 @onready var animation_sprite = $AnimatedSprite2D
+@onready var hurt_audio = $HurtAudioPlayer
+@onready var sword_audio = $SwordAudioPlayer
+@onready var rage_audio = $RageEndAudioPlayer
 @onready var camera = $"../Camera2D"
 @onready var collision_shape = $Hurtbox/CollisionShape2D
 @onready var hitbox_pivot = $HitboxPivot
@@ -56,6 +59,10 @@ func _ready():
 	flash_timer.wait_time = 0.1
 	flash_timer.one_shot = false
 	flash_timer.timeout.connect(_on_flash_start)
+
+	hurt_audio.volume_db = AudioLevel.sound_effect_volume
+	sword_audio.volume_db = AudioLevel.sound_effect_volume
+	rage_audio = AudioLevel.sound_effect_volume
 
 func _process(_delta: float) -> void:
 	get_aiming_input()
@@ -113,6 +120,7 @@ func _on_invincibility_timeout():
 func _on_rage_end():
 	animation_player.speed_scale = 1
 	rage_multiplier /= rage_boost_value
+	rage_audio.play()
 
 func _on_flash_start():
 	animation_sprite.visible = not animation_sprite.visible
@@ -172,6 +180,8 @@ func choose_attack_animation():
 		play_mode_animation("up-attack")
 	elif attack_direction == AttackDirection.DOWN and not is_on_floor():
 		play_mode_animation("down-attack")
+	
+	sword_audio.play()
 
 func take_damage(enemy_position):
 	collision_shape.disabled = true
@@ -202,6 +212,8 @@ func check_death():
 		died.emit()
 		await get_tree().create_timer(1).timeout
 		get_tree().change_scene_to_file("res://death_screen.tscn")
+	else:
+		hurt_audio.play()
 
 func play_mode_animation(animation):
 	if not rage_timer.is_stopped():
