@@ -1,11 +1,32 @@
 [gd_scene format=3 uid="uid://bw38dqreyqam3"]
 
+[ext_resource type="Texture2D" uid="uid://cl5unkmwx8ics" path="res://Assets/Animations/Twin-Bundle/Twin-Bundle1.png" id="1_218tw"]
 [ext_resource type="Texture2D" uid="uid://o0k2hh2y0rbm" path="res://Assets/Animations/Twin-Idle/Twin-Idle1.png" id="1_qc846"]
+[ext_resource type="Texture2D" uid="uid://divxpr2qbq6pu" path="res://Assets/Animations/Twin-Bundle/Twin-Bundle2.png" id="2_mv07x"]
 [ext_resource type="Texture2D" uid="uid://2sns2ph06xu2" path="res://Assets/Animations/Twin-Idle/Twin-Idle2.png" id="2_ragtu"]
+[ext_resource type="Texture2D" uid="uid://dxaehwo4ihk7h" path="res://Assets/Animations/Twin-Bundle/Twin-Bundle3.png" id="3_867os"]
 [ext_resource type="Texture2D" uid="uid://cr5pf5nahpt1y" path="res://Assets/Animations/Twin-Idle/Twin-Idle3.png" id="3_s1jrl"]
+[ext_resource type="Texture2D" uid="uid://ba88wl0t7ols" path="res://Assets/Animations/Twin-Rolling/Twin-Rolling1.png" id="7_w230r"]
+[ext_resource type="Texture2D" uid="uid://df0ebjtf5gsnq" path="res://Assets/Animations/Twin-Rolling/Twin-Rolling2.png" id="8_fi0m7"]
+[ext_resource type="Texture2D" uid="uid://dq01rtn5mnrym" path="res://Assets/Animations/Twin-Rolling/Twin-Rolling3.png" id="9_treeg"]
+[ext_resource type="Texture2D" uid="uid://b23tuadw470ru" path="res://Assets/Animations/Twin-Rolling/Twin-Rolling4.png" id="10_stots"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_218tw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_mv07x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_867os")
+}],
+"loop": 0,
+"name": &"bundle-up",
+"speed": 6.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_qc846")
@@ -18,6 +39,23 @@ animations = [{
 }],
 "loop": 1,
 "name": &"idle",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_w230r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_fi0m7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_treeg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_stots")
+}],
+"loop": 1,
+"name": &"rolling",
 "speed": 12.0
 }]
 
@@ -34,6 +72,74 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+
+[sub_resource type="Animation" id="Animation_w230r"]
+resource_name = "bundle-down"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"bundle-up"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.166, 0.332),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [2, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_idp53"]
+resource_name = "bundle-up"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166, 0.332),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"bundle-up"]
 }
 
 [sub_resource type="Animation" id="Animation_mv07x"]
@@ -52,11 +158,55 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 1, 2]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+
+[sub_resource type="Animation" id="Animation_pkidh"]
+resource_name = "rolling"
+length = 0.33
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"rolling"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0825, 0.165, 0.24749999),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_867os"]
 _data = {
 &"RESET": SubResource("Animation_218tw"),
-&"idle": SubResource("Animation_mv07x")
+&"bundle-down": SubResource("Animation_w230r"),
+&"bundle-up": SubResource("Animation_idp53"),
+&"idle": SubResource("Animation_mv07x"),
+&"rolling": SubResource("Animation_pkidh")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
@@ -80,7 +230,7 @@ animation = &"idle"
 libraries/ = SubResource("AnimationLibrary_867os")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1337536199]
-position = Vector2(-1.66, 4)
+position = Vector2(0.5, 2)
 scale = Vector2(2.7, 2.7)
 shape = SubResource("CircleShape2D_g4v7s")
 
@@ -89,6 +239,6 @@ collision_layer = 16
 collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=2130497132]
-position = Vector2(-1.66, 4)
+position = Vector2(0.5, 2)
 scale = Vector2(2.7, 2.7)
 shape = SubResource("CircleShape2D_yf5fn")

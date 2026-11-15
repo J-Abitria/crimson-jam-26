@@ -11,6 +11,9 @@ signal died
 @export var speed = 500
 @export var jump_speed = -800
 @export var health = 10
+@export var self_knockback_strength = 200
+@export var self_pogo_strength = 600
+@export var knockback_decay = 1000
 
 @onready var animation_player = $AnimationPlayer
 @onready var animation_sprite = $AnimatedSprite2D
@@ -23,6 +26,7 @@ signal died
 @onready var previous_direction = attack_direction
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var knockback_velocity = Vector2.ZERO
 
 func _ready():
 	animation_player.play("idle")
@@ -54,6 +58,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_speed
 
+	knockback_velocity = knockback_velocity.move_toward(Vector2.ZERO, knockback_decay * delta)
+	velocity += knockback_velocity
 	move_and_slide()
 
 func _on_animation_finished(anim_name: String):
@@ -64,6 +70,13 @@ func _on_animation_finished(anim_name: String):
 
 func _on_enemy_collision(body):
 	body.enemy_take_damage(5)
+	var distance = global_position - body.global_position
+
+	if distance.y < -16.0:
+		velocity.y = -self_pogo_strength
+		knockback_velocity.x = sign(distance.x) * (self_knockback_strength * 0.5)
+	else:
+		knockback_velocity = Vector2(sign(distance.x) * self_knockback_strength, 0)
 
 func _on_invincibility_timeout():
 	collision_shape.disabled = false

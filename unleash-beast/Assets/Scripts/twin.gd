@@ -29,11 +29,14 @@ var was_on_floor = false
 func _ready() -> void:
 	animation_player.play("idle")
 	hurtbox.area_entered.connect(_on_player_collision)
-	timer.wait_time = 3.5
+	timer.wait_time = 4
 	timer.one_shot = false
 	timer.timeout.connect(_on_timer_timeout)
 	attack_timer.timeout.connect(_on_attack_timer_timeout)
 	timer.start()
+
+func _process(_delta: float) -> void:
+	animated_sprite.scale.x = -1 if global_position.x <= 600 else 1
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -41,18 +44,21 @@ func _physics_process(delta: float) -> void:
 		velocity.y += gravityMultiplier * gravity * delta
 	elif not was_on_floor:
 		velocity.x = 0
+		reset_animation()
 	
 	was_on_floor = is_on_floor()
 
-	check_cancel_attack()
 	move_and_slide()
 
 func _on_timer_timeout():
 	if num_attacks < 3:
 		attack_state = base_order[num_attacks]
 	else:
-		timer.wait_time = randf_range(2, 3.5)
+		timer.wait_time = randf_range(2.5, 4)
 		attack_state = base_order[randi() % 3]
+	
+	animation_player.play("bundle-up")
+	await animation_player.animation_finished
 
 	num_attacks += 1
 	process_attack()
@@ -60,21 +66,12 @@ func _on_timer_timeout():
 func _on_attack_timer_timeout():
 	if attack_state == AttackState.ROLL:
 		attack_state = AttackState.IDLE
+		reset_animation()
 	else:
 		velocity = Vector2(attack_direction * roll_speed, dash_speed)
 
 func _on_player_collision(area_entered):
 	area_entered.get_parent().take_damage.call_deferred()
-
-func check_cancel_attack():
-	if attack_state == AttackState.IDLE:
-		return
-	
-	if attack_state == AttackState.ROLL and is_on_wall():
-		attack_timer.stop()
-		velocity.x = 0
-		attack_state = AttackState.IDLE
-
 
 func process_attack():
 	match(attack_state):
@@ -86,12 +83,14 @@ func process_attack():
 			trigger_dashing()
 		_:
 			print("Not implemented")
+	
+	animation_player.play("rolling")
 
 func trigger_rolling():
 	attack_direction = 1 if global_position.x < 600 else -1
 	velocity.x = attack_direction * roll_speed
 
-	setup_attack_timer(0.75)
+	setup_attack_timer(0.6)
 
 func trigger_jumping():
 	attack_direction = 1 if global_position.x < 600 else -1
@@ -114,6 +113,11 @@ func flash_white():
 	animated_sprite.modulate = Color(10, 10, 10, 10)
 	await get_tree().create_timer(0.1).timeout
 	animated_sprite.modulate = Color(1, 1, 1, 1)
+
+func reset_animation():
+	animation_player.play("bundle-down")
+	await animation_player.animation_finished
+	animation_player.play("idle")
 
 func enemy_take_damage(amount):
 	flash_white()
