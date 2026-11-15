@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://ceokqyyid4sdp"]
+
+[ext_resource type="Script" uid="uid://bwoy1sbuiydwi" path="res://Assets/Scripts/replay_button.gd" id="1_if853"]
+[ext_resource type="Script" uid="uid://cnhmn5mk78kjf" path="res://Assets/Scripts/fade_in_player.gd" id="2_ex68u"]
+
+[sub_resource type="Animation" id="Animation_if853"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ex68u"]
+resource_name = "fade-in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6bi5g"]
+_data = {
+&"RESET": SubResource("Animation_if853"),
+&"fade-in": SubResource("Animation_ex68u")
+}
+
+[node name="DeathScreen" type="Control" unique_id=222802133]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1982588030]
+custom_minimum_size = Vector2(1152, 100)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="PanelContainer" unique_id=978331541]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "L Bozo"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelContainer2" type="PanelContainer" parent="." unique_id=2092191566]
+custom_minimum_size = Vector2(1152, 548)
+layout_mode = 0
+offset_top = 100.0
+offset_right = 40.0
+offset_bottom = 140.0
+
+[node name="ReplayButton" type="Button" parent="PanelContainer2" unique_id=1233735973]
+layout_mode = 2
+text = "Try Again?"
+script = ExtResource("1_if853")
+
+[node name="Fade" type="CanvasLayer" parent="." unique_id=1244214994]
+
+[node name="ColorRect" type="ColorRect" parent="Fade" unique_id=901606455]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="FadeInPlayer" type="AnimationPlayer" parent="Fade" unique_id=220571649]
+libraries/ = SubResource("AnimationLibrary_6bi5g")
+script = ExtResource("2_ex68u")

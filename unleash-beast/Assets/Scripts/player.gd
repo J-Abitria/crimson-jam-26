@@ -6,22 +6,39 @@ enum AttackDirection {
 	HORIZONTAL
 }
 
+signal died
+
 @export var speed = 500
 @export var jump_speed = -800
+@export var health = 10
+@export var self_knockback_strength = 200
+@export var self_pogo_strength = 600
+@export var knockback_decay = 1000
 
 @onready var animation_player = $AnimationPlayer
 @onready var animation_sprite = $AnimatedSprite2D
-@onready var collision_shape = $CollisionShape2D
+@onready var camera = $"../Camera2D"
+@onready var collision_shape = $Hurtbox/CollisionShape2D
 @onready var hitbox_pivot = $HitboxPivot
+@onready var invincibility_timer = $InvincibilityTimer
 @onready var collision_start_pos = collision_shape.position
 @onready var attack_direction = AttackDirection.HORIZONTAL
 @onready var previous_direction = attack_direction
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var knockback_velocity = Vector2.ZERO
 
 func _ready():
 	animation_player.play("idle")
 	animation_player.animation_finished.connect(_on_animation_finished)
+
+	var hitboxes = hitbox_pivot.get_children()
+	for hitbox_area in hitboxes:
+		hitbox_area.body_entered.connect(_on_enemy_collision)
+
+	invincibility_timer.wait_time = 2
+	invincibility_timer.one_shot = true
+	invincibility_timer.timeout.connect(_on_invincibility_timeout)
 
 func _process(_delta: float) -> void:
 	get_aiming_input()
@@ -41,6 +58,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_speed
 
+	knockback_velocity = knockback_velocity.move_toward(Vector2.ZERO, knockback_decay * delta)
+	velocity += knockback_velocity
 	move_and_slide()
 
 func _on_animation_finished(anim_name: String):
@@ -48,6 +67,22 @@ func _on_animation_finished(anim_name: String):
 
 	if anim_name.ends_with("attack"):
 		animation_player.play("idle")
+
+func _on_enemy_collision(body):
+	body.enemy_take_damage(5)
+	calculate_knockback(body.global_position, 0.5, 1)
+
+func _on_invincibility_timeout():
+	collision_shape.disabled = false
+
+func calculate_knockback(enemy_position, pogo_multiplier, base_multiplier):
+	var distance = global_position - enemy_position
+
+	if distance.y < -16.0:
+		velocity.y = -self_pogo_strength
+		knockback_velocity.x = sign(distance.x) * self_knockback_strength * pogo_multiplier
+	else:
+		knockback_velocity = Vector2(sign(distance.x) * self_knockback_strength * base_multiplier, 0)
 
 func get_movement_input():
 	var input_direction = Input.get_axis("move_left", "move_right")
@@ -95,3 +130,19 @@ func choose_attack_animation():
 		animation_player.play("up-attack")
 	elif attack_direction == AttackDirection.DOWN and not is_on_floor():
 		animation_player.play("down-attack")
+
+func take_damage(enemy_position):
+	collision_shape.disabled = true
+	health -= 1
+	calculate_knockback(enemy_position, 2, 3)
+	check_death()
+
+	camera.apply_shake(10.0)
+	invincibility_timer.start()
+
+func check_death():
+	if health == 0:
+		invincibility_timer.stop()
+		died.emit()
+		await get_tree().create_timer(1).timeout
+		get_tree().change_scene_to_file("res://death_screen.tscn")
