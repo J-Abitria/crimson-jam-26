@@ -83,7 +83,6 @@ script = ExtResource("4_pmmbh")
 [node name="Twin-2" parent="." unique_id=290380116 instance=ExtResource("4_t5hr7")]
 position = Vector2(921, 521)
 script = ExtResource("4_pmmbh")
-health = 10
 
 [node name="Player" parent="." unique_id=889811035 instance=ExtResource("3_ildd2")]
 position = Vector2(614, 535)

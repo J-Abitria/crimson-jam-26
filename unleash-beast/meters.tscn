@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c810mduxoc5l2" path="res://Assets/Sprites/Rage-Over.png" id="5_1ihgk"]
 [ext_resource type="Texture2D" uid="uid://cvjrwd7d5udlx" path="res://Assets/Sprites/Rage-Progress.png" id="6_h8weg"]
 [ext_resource type="Script" uid="uid://ce3fuii5ijr0i" path="res://Assets/Scripts/rage_bar.gd" id="8_2iovc"]
+[ext_resource type="AudioStream" uid="uid://ddqortt4cm7ix" path="res://Assets/Sounds/Player/Rage-Full.wav" id="9_f88ny"]
 
 [node name="Meters" type="Control" unique_id=1601996893]
 layout_mode = 3
@@ -42,3 +43,6 @@ texture_under = ExtResource("4_f88ny")
 texture_over = ExtResource("5_1ihgk")
 texture_progress = ExtResource("6_h8weg")
 script = ExtResource("8_2iovc")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="RageBar" unique_id=372824406]
+stream = ExtResource("9_f88ny")

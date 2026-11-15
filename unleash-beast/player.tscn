@@ -55,6 +55,7 @@
 [ext_resource type="AudioStream" uid="uid://b12odmk4rqrhu" path="res://Assets/Sounds/Player/Hit3.wav" id="53_b4uyv"]
 [ext_resource type="AudioStream" uid="uid://c7d2m7wdejy8y" path="res://Assets/Sounds/Player/Hit4.wav" id="54_tw8ou"]
 [ext_resource type="AudioStream" uid="uid://wipplqbtclvg" path="res://Assets/Sounds/Player/Hit5.wav" id="55_ygbnx"]
+[ext_resource type="AudioStream" uid="uid://cq5b0eixom4p8" path="res://Assets/Sounds/Player/Rage-End.wav" id="56_b4uyv"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yf5fn"]
 animations = [{
@@ -763,6 +764,18 @@ tracks/4/keys = {
 "update": 1,
 "values": [false, true, false]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimatedSprite2D:offset")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_tkwlq"]
 resource_name = "oni-idle"
@@ -1262,3 +1275,6 @@ stream = SubResource("AudioStreamRandomizer_g4v7s")
 
 [node name="HurtAudioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1022518647]
 stream = SubResource("AudioStreamRandomizer_yf5fn")
+
+[node name="RageEndAudioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1067235898]
+stream = ExtResource("56_b4uyv")

@@ -24,6 +24,7 @@ signal died
 @onready var animation_sprite = $AnimatedSprite2D
 @onready var hurt_audio = $HurtAudioPlayer
 @onready var sword_audio = $SwordAudioPlayer
+@onready var rage_audio = $RageEndAudioPlayer
 @onready var camera = $"../Camera2D"
 @onready var collision_shape = $Hurtbox/CollisionShape2D
 @onready var hitbox_pivot = $HitboxPivot
@@ -115,6 +116,7 @@ func _on_invincibility_timeout():
 func _on_rage_end():
 	animation_player.speed_scale = 1
 	rage_multiplier /= rage_boost_value
+	rage_audio.play()
 
 func _on_flash_start():
 	animation_sprite.visible = not animation_sprite.visible
