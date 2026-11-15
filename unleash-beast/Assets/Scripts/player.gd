@@ -90,8 +90,10 @@ func _on_animation_finished(anim_name: String):
 
 func _on_enemy_collision(body):
 	body.enemy_take_damage(damage * rage_multiplier)
-	rage = rage + 2 if rage <= 98 else 100
-	rage_changed.emit(rage)
+
+	if rage_timer.is_stopped():
+		rage = rage + 2 if rage <= 98 else 100
+		rage_changed.emit(rage)
 
 	calculate_knockback(body.global_position, 0.5, 1)
 
@@ -164,8 +166,10 @@ func take_damage(enemy_position):
 	health -= 1
 	health_changed.emit(health)
 	rage_multiplier += .02
-	rage = rage + 5 if rage <= 95 else 100
-	rage_changed.emit(rage)
+
+	if rage_timer.is_stopped():
+		rage = rage + 5 if rage <= 95 else 100
+		rage_changed.emit(rage)
 
 	calculate_knockback(enemy_position, 2, 3)
 	check_death()
