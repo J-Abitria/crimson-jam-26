@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://588n6tk07bcp"]
+
+[ext_resource type="Script" uid="uid://bwoy1sbuiydwi" path="res://Assets/Scripts/replay_button.gd" id="1_akwf7"]
+[ext_resource type="Script" uid="uid://cr3f2yx6u2eid" path="res://Assets/Scripts/menu_button.gd" id="2_2cral"]
+[ext_resource type="Script" uid="uid://cnhmn5mk78kjf" path="res://Assets/Scripts/fade_in_player.gd" id="3_2cral"]
+
+[sub_resource type="Gradient" id="Gradient_sel2p"]
+offsets = PackedFloat32Array(0, 0.57228917, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.02745098, 0, 0.05882353, 0.23529412, 0.5757943, 0.44113624, 0.039880946, 0.36862746)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5wgki"]
+gradient = SubResource("Gradient_sel2p")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Animation" id="Animation_if853"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ex68u"]
+resource_name = "fade-in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y8qen"]
+_data = {
+&"RESET": SubResource("Animation_if853"),
+&"fade-in": SubResource("Animation_ex68u")
+}
+
+[node name="Control" type="Control" unique_id=1679819944]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="." unique_id=1508068971]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_5wgki")
+
+[node name="Label" type="Label" parent="." unique_id=262456989]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -158.0
+offset_top = 18.0
+offset_right = 122.0
+offset_bottom = 106.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 64
+text = "You Win!"
+
+[node name="Button" type="Button" parent="." unique_id=2085297360]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -116.0
+offset_top = 203.0
+offset_right = 84.0
+offset_bottom = 234.0
+grow_horizontal = 2
+text = "Play Again"
+script = ExtResource("1_akwf7")
+
+[node name="Button2" type="Button" parent="." unique_id=1313557179]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -114.0
+offset_top = 267.0
+offset_right = 86.0
+offset_bottom = 298.0
+grow_horizontal = 2
+text = "Return to Menu"
+script = ExtResource("2_2cral")
+
+[node name="Fade" type="CanvasLayer" parent="." unique_id=560487824]
+
+[node name="ColorRect" type="ColorRect" parent="Fade" unique_id=1775426335]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="FadeInPlayer" type="AnimationPlayer" parent="Fade" unique_id=8260518]
+libraries/ = SubResource("AnimationLibrary_y8qen")
+script = ExtResource("3_2cral")

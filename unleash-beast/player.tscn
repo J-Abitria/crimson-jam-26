@@ -13,20 +13,40 @@
 [ext_resource type="Texture2D" uid="uid://dacworooycexh" path="res://Assets/Animations/Player-Idle/Player-Idle1.png" id="11_qtqh7"]
 [ext_resource type="Texture2D" uid="uid://434pbxplqx1v" path="res://Assets/Animations/Player-Idle/Player-Idle2.png" id="12_2wuci"]
 [ext_resource type="Texture2D" uid="uid://c80r1igjrspyx" path="res://Assets/Animations/Player-Idle/Player-Idle3.png" id="13_iruf7"]
+[ext_resource type="Texture2D" uid="uid://bcb51m57pkg38" path="res://Assets/Animations/Oni-Down-Attack/Oni-Down-Attack1.png" id="14_8gr2b"]
+[ext_resource type="Texture2D" uid="uid://cgd5awovq2b5d" path="res://Assets/Animations/Oni-Idle/Oni-Idle1.png" id="14_634y6"]
 [ext_resource type="Texture2D" uid="uid://bium77ndep2nb" path="res://Assets/Animations/Player-Up-Attack/Player-Up-Attack1.png" id="14_j5n4i"]
 [ext_resource type="Texture2D" uid="uid://c05eimuwvjlrw" path="res://Assets/Animations/Player-Up-Attack/Player-Up-Attack2.png" id="15_634y6"]
+[ext_resource type="Texture2D" uid="uid://cl3bu3fo7svfu" path="res://Assets/Animations/Oni-Idle/Oni-Idle2.png" id="15_efrwb"]
+[ext_resource type="Texture2D" uid="uid://bhvnpdspfxqvl" path="res://Assets/Animations/Oni-Down-Attack/Oni-Down-Attack2.png" id="15_vl8ci"]
 [ext_resource type="Texture2D" uid="uid://drimoxslo04uw" path="res://Assets/Animations/Player-Up-Attack/Player-Up-Attack3.png" id="16_efrwb"]
+[ext_resource type="Texture2D" uid="uid://dv3fe6y3151dl" path="res://Assets/Animations/Oni-Idle/Oni-Idle3.png" id="16_hiqhm"]
+[ext_resource type="Texture2D" uid="uid://b1wlnrbdoyaf1" path="res://Assets/Animations/Oni-Down-Attack/Oni-Down-Attack3.png" id="16_ieltc"]
+[ext_resource type="Texture2D" uid="uid://pabiarbeoxfe" path="res://Assets/Animations/Oni-Down-Attack/Oni-Down-Attack4.png" id="17_fddr8"]
 [ext_resource type="Texture2D" uid="uid://clcc74mk3lwnw" path="res://Assets/Animations/Player-Up-Attack/Player-Up-Attack4.png" id="17_hiqhm"]
 [ext_resource type="Texture2D" uid="uid://b0ioieopos765" path="res://Assets/Animations/Damaged-Particles/Damaged-Particles1.png" id="18_7ahtn"]
+[ext_resource type="Texture2D" uid="uid://bhkjhowctx8mk" path="res://Assets/Animations/Oni-Down-Attack/Oni-Down-Attack5.png" id="18_oybyf"]
 [ext_resource type="Texture2D" uid="uid://cietuerhkeisx" path="res://Assets/Animations/Player-Walk/Player-Walk1.png" id="18_qtqh7"]
 [ext_resource type="Texture2D" uid="uid://bh03miso7lp7c" path="res://Assets/Animations/Player-Walk/Player-Walk2.png" id="19_2wuci"]
 [ext_resource type="Texture2D" uid="uid://coularxcr5rsv" path="res://Assets/Animations/Damaged-Particles/Damaged-Particles2.png" id="19_7lmhl"]
+[ext_resource type="Texture2D" uid="uid://cgiu7mq52ptpj" path="res://Assets/Animations/Oni-Horizontal-Attack/Oni-Horizontal-Attack1.png" id="19_ajfva"]
+[ext_resource type="Texture2D" uid="uid://dd3dweh3l2ger" path="res://Assets/Animations/Oni-Horizontal-Attack/Oni-Horizontal-Attack2.png" id="20_5ef02"]
 [ext_resource type="Texture2D" uid="uid://gl8yuj6eqfny" path="res://Assets/Animations/Damaged-Particles/Damaged-Particles3.png" id="20_dx0e4"]
 [ext_resource type="Texture2D" uid="uid://tc46b768tdw2" path="res://Assets/Animations/Player-Walk/Player-Walk3.png" id="20_iruf7"]
 [ext_resource type="Texture2D" uid="uid://dl0cpjmnul4o5" path="res://Assets/Animations/Player-Walk/Player-Walk4.png" id="21_j5n4i"]
 [ext_resource type="Texture2D" uid="uid://bwvp2bmq8xbtp" path="res://Assets/Animations/Damaged-Particles/Damaged-Particles4.png" id="21_jm5j8"]
+[ext_resource type="Texture2D" uid="uid://dlregwjtrihwo" path="res://Assets/Animations/Oni-Horizontal-Attack/Oni-Horizontal-Attack3.png" id="21_pfmca"]
 [ext_resource type="Texture2D" uid="uid://bx2mxpe6i7myf" path="res://Assets/Animations/Damaged-Particles/Damaged-Particles5.png" id="22_7hik5"]
+[ext_resource type="Texture2D" uid="uid://djwri3lud2fng" path="res://Assets/Animations/Oni-Horizontal-Attack/Oni-Horizontal-Attack4.png" id="22_76oay"]
 [ext_resource type="Script" uid="uid://cbf8nuvpen080" path="res://Assets/Scripts/particle_player.gd" id="23_7lmhl"]
+[ext_resource type="Texture2D" uid="uid://bjax2gicvb7d3" path="res://Assets/Animations/Oni-Up-Attack/Oni-Up-Attack1.png" id="26_b4uyv"]
+[ext_resource type="Texture2D" uid="uid://c2h3e8qjxto8u" path="res://Assets/Animations/Oni-Up-Attack/Oni-Up-Attack2.png" id="27_tw8ou"]
+[ext_resource type="Texture2D" uid="uid://c3kpuf1bit1ug" path="res://Assets/Animations/Oni-Up-Attack/Oni-Up-Attack3.png" id="28_ygbnx"]
+[ext_resource type="Texture2D" uid="uid://cdny7asculkx5" path="res://Assets/Animations/Oni-Up-Attack/Oni-Up-Attack4.png" id="29_v2t6f"]
+[ext_resource type="Texture2D" uid="uid://bvc6b6a8n4m6t" path="res://Assets/Animations/Oni-Walk/Oni-Walk1.png" id="30_l3lcn"]
+[ext_resource type="Texture2D" uid="uid://dthwf0t8a8q07" path="res://Assets/Animations/Oni-Walk/Oni-Walk2.png" id="31_xry5e"]
+[ext_resource type="Texture2D" uid="uid://owsmtilor0lu" path="res://Assets/Animations/Oni-Walk/Oni-Walk3.png" id="32_h6w8y"]
+[ext_resource type="Texture2D" uid="uid://dsc417jf1f6g0" path="res://Assets/Animations/Oni-Walk/Oni-Walk4.png" id="33_yem3p"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yf5fn"]
 animations = [{
@@ -98,6 +118,91 @@ animations = [{
 "loop": 1,
 "name": &"idle",
 "speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_8gr2b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_vl8ci")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_ieltc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_fddr8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_oybyf")
+}],
+"loop": 0,
+"name": &"oni-down-attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_ajfva")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_5ef02")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_pfmca")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_76oay")
+}],
+"loop": 0,
+"name": &"oni-horizontal-attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_634y6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_efrwb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_hiqhm")
+}],
+"loop": 1,
+"name": &"oni-idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("26_b4uyv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_tw8ou")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_ygbnx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_v2t6f")
+}],
+"loop": 0,
+"name": &"oni-up-attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("30_l3lcn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_xry5e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_h6w8y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_yem3p")
+}],
+"loop": 1,
+"name": &"oni-walk",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -511,6 +616,291 @@ tracks/2/keys = {
 "values": [&"idle"]
 }
 
+[sub_resource type="Animation" id="Animation_vl8ci"]
+resource_name = "oni-down-attack"
+length = 0.33
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"oni-down-attack"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.041, 0.082, 0.25, 0.291),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-8, 6)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HitboxPivot/HitboxDown:monitoring")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.082, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HitboxPivot/HitboxDown:monitorable")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.082, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HitboxPivot/HitboxDown:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.082, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_ieltc"]
+resource_name = "oni-horizontal-attack"
+length = 0.33
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"oni-horizontal-attack"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.094, 0.141),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HitboxPivot/HitboxHorizontal:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.141, 0.282),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HitboxPivot/HitboxHorizontal:monitorable")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.141, 0.282),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HitboxPivot/HitboxHorizontal:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.141, 0.282),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_tkwlq"]
+resource_name = "oni-idle"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"oni-idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_8gr2b"]
+resource_name = "oni-up-attack"
+length = 0.33
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"oni-up-attack"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.081, 0.123, 0.287),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HitboxPivot/HitboxUp:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.123, 0.287),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HitboxPivot/HitboxUp:monitoring")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.123, 0.287),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HitboxPivot/HitboxUp:monitorable")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.123, 0.287),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimatedSprite2D:offset")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-7, -5)]
+}
+
+[sub_resource type="Animation" id="Animation_86rna"]
+resource_name = "oni-walk"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"oni-walk"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_ha7fu"]
 resource_name = "up-attack"
 length = 0.33
@@ -614,6 +1004,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [0, 1, 2, 3]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pbaqw"]
 _data = {
@@ -621,6 +1023,11 @@ _data = {
 &"down-attack": SubResource("Animation_jf5ul"),
 &"horizontal-attack": SubResource("Animation_pbaqw"),
 &"idle": SubResource("Animation_fgihj"),
+&"oni-down-attack": SubResource("Animation_vl8ci"),
+&"oni-horizontal-attack": SubResource("Animation_ieltc"),
+&"oni-idle": SubResource("Animation_tkwlq"),
+&"oni-up-attack": SubResource("Animation_8gr2b"),
+&"oni-walk": SubResource("Animation_86rna"),
 &"up-attack": SubResource("Animation_ha7fu"),
 &"walk": SubResource("Animation_634y6")
 }
@@ -816,6 +1223,8 @@ shape = SubResource("CircleShape2D_57qmd")
 [node name="InvincibilityTimer" type="Timer" parent="." unique_id=989659052]
 
 [node name="RageTimer" type="Timer" parent="." unique_id=1730912349]
+
+[node name="FlashTimer" type="Timer" parent="." unique_id=315229335]
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=496043345]
 collision_layer = 32

@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bw38dqreyqam3" path="res://twin.tscn" id="4_t5hr7"]
 [ext_resource type="PackedScene" uid="uid://ckr7tiefkmgeh" path="res://meters.tscn" id="7_q0b7o"]
 [ext_resource type="Script" uid="uid://ckcmoddi46y8c" path="res://Assets/Scripts/fade_out_player.gd" id="7_w7n3p"]
+[ext_resource type="Script" uid="uid://bo8nntck2fwst" path="res://Assets/Scripts/enemy_manager.gd" id="9_tqegg"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_t5hr7"]
 resource_name = "Background"
@@ -56,6 +57,14 @@ _data = {
 
 [node name="Battleground" type="Node2D" unique_id=971398247]
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=386061321]
+offset_left = -938.0
+offset_top = -684.0
+offset_right = -898.0
+offset_bottom = -644.0
+scale = Vector2(77.51974, 52.226128)
+color = Color(0, 0, 0, 1)
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=661351914]
 position = Vector2(580, 320)
 script = ExtResource("1_sjsww")
@@ -96,3 +105,6 @@ color = Color(0, 0, 0, 1)
 [node name="FadeOutPlayer" type="AnimationPlayer" parent="Fade" unique_id=1941641362]
 libraries/ = SubResource("AnimationLibrary_q0b7o")
 script = ExtResource("7_w7n3p")
+
+[node name="EnemyManager" type="Node2D" parent="." unique_id=1216426428]
+script = ExtResource("9_tqegg")
