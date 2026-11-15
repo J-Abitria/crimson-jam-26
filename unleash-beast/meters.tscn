@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://ckr7tiefkmgeh"]
+
+[ext_resource type="Texture2D" uid="uid://vskflf0i4fug" path="res://Assets/Sprites/Health-Under.png" id="1_2dh4v"]
+[ext_resource type="Texture2D" uid="uid://dgittuuc22x08" path="res://Assets/Sprites/Health-Over.png" id="2_1v15m"]
+[ext_resource type="Texture2D" uid="uid://fv02hmsmrhx4" path="res://Assets/Sprites/Health-Progress.png" id="3_2iovc"]
+[ext_resource type="Script" uid="uid://cnx21675aa4vg" path="res://Assets/Scripts/health_bar.gd" id="4_1v15m"]
+[ext_resource type="Texture2D" uid="uid://by5r74rtbdxkc" path="res://Assets/Sprites/Rage-Under.png" id="4_f88ny"]
+[ext_resource type="Texture2D" uid="uid://c810mduxoc5l2" path="res://Assets/Sprites/Rage-Over.png" id="5_1ihgk"]
+[ext_resource type="Texture2D" uid="uid://cvjrwd7d5udlx" path="res://Assets/Sprites/Rage-Progress.png" id="6_h8weg"]
+[ext_resource type="Script" uid="uid://ce3fuii5ijr0i" path="res://Assets/Scripts/rage_bar.gd" id="8_2iovc"]
+
+[node name="Meters" type="Control" unique_id=1601996893]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HealthBar" type="TextureProgressBar" parent="." unique_id=141090616]
+texture_filter = 1
+layout_mode = 0
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 325.0
+offset_bottom = 57.0
+max_value = 10.0
+value = 10.0
+texture_under = ExtResource("1_2dh4v")
+texture_over = ExtResource("2_1v15m")
+texture_progress = ExtResource("3_2iovc")
+script = ExtResource("4_1v15m")
+
+[node name="RageBar" type="TextureProgressBar" parent="." unique_id=1106881777]
+texture_filter = 1
+layout_mode = 0
+offset_left = 25.0
+offset_top = 65.0
+offset_right = 265.0
+offset_bottom = 81.0
+texture_under = ExtResource("4_f88ny")
+texture_over = ExtResource("5_1ihgk")
+texture_progress = ExtResource("6_h8weg")
+script = ExtResource("8_2iovc")
