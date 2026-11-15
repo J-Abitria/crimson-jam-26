@@ -71,7 +71,7 @@ func _on_attack_timer_timeout():
 		velocity = Vector2(attack_direction * roll_speed, dash_speed)
 
 func _on_player_collision(area_entered):
-	area_entered.get_parent().take_damage.call_deferred()
+	area_entered.get_parent().take_damage.call_deferred(global_position)
 
 func process_attack():
 	match(attack_state):

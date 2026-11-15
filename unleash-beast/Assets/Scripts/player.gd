@@ -70,16 +70,19 @@ func _on_animation_finished(anim_name: String):
 
 func _on_enemy_collision(body):
 	body.enemy_take_damage(5)
-	var distance = global_position - body.global_position
-
-	if distance.y < -16.0:
-		velocity.y = -self_pogo_strength
-		knockback_velocity.x = sign(distance.x) * (self_knockback_strength * 0.5)
-	else:
-		knockback_velocity = Vector2(sign(distance.x) * self_knockback_strength, 0)
+	calculate_knockback(body.global_position, 0.5, 1)
 
 func _on_invincibility_timeout():
 	collision_shape.disabled = false
+
+func calculate_knockback(enemy_position, pogo_multiplier, base_multiplier):
+	var distance = global_position - enemy_position
+
+	if distance.y < -16.0:
+		velocity.y = -self_pogo_strength
+		knockback_velocity.x = sign(distance.x) * self_knockback_strength * pogo_multiplier
+	else:
+		knockback_velocity = Vector2(sign(distance.x) * self_knockback_strength * base_multiplier, 0)
 
 func get_movement_input():
 	var input_direction = Input.get_axis("move_left", "move_right")
@@ -128,9 +131,10 @@ func choose_attack_animation():
 	elif attack_direction == AttackDirection.DOWN and not is_on_floor():
 		animation_player.play("down-attack")
 
-func take_damage():
+func take_damage(enemy_position):
 	collision_shape.disabled = true
 	health -= 1
+	calculate_knockback(enemy_position, 2, 3)
 	check_death()
 
 	camera.apply_shake(10.0)
