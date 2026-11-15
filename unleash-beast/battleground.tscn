@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ckr7tiefkmgeh" path="res://meters.tscn" id="7_q0b7o"]
 [ext_resource type="Script" uid="uid://ckcmoddi46y8c" path="res://Assets/Scripts/fade_out_player.gd" id="7_w7n3p"]
 [ext_resource type="Script" uid="uid://bo8nntck2fwst" path="res://Assets/Scripts/enemy_manager.gd" id="9_tqegg"]
+[ext_resource type="Script" uid="uid://uueijnbqbhk5" path="res://Assets/Scripts/global_audio.gd" id="10_e84sg"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_t5hr7"]
 resource_name = "Background"
@@ -82,6 +83,7 @@ script = ExtResource("4_pmmbh")
 [node name="Twin-2" parent="." unique_id=290380116 instance=ExtResource("4_t5hr7")]
 position = Vector2(921, 521)
 script = ExtResource("4_pmmbh")
+health = 10
 
 [node name="Player" parent="." unique_id=889811035 instance=ExtResource("3_ildd2")]
 position = Vector2(614, 535)
@@ -108,3 +110,6 @@ script = ExtResource("7_w7n3p")
 
 [node name="EnemyManager" type="Node2D" parent="." unique_id=1216426428]
 script = ExtResource("9_tqegg")
+
+[node name="GlobalAudio" type="AudioStreamPlayer" parent="." unique_id=209965308]
+script = ExtResource("10_e84sg")

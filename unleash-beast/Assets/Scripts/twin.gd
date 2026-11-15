@@ -124,7 +124,6 @@ func reset_animation():
 
 func enemy_take_damage(amount):
 	flash_white()
-	audio_player.play()
 	health -= amount
 	check_enemy_death()
 
@@ -132,3 +131,5 @@ func check_enemy_death():
 	if health <= 0:
 		enemy_died.emit()
 		queue_free()
+	else:
+		audio_player.play()

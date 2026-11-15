@@ -22,6 +22,8 @@ signal died
 
 @onready var animation_player = $AnimationPlayer
 @onready var animation_sprite = $AnimatedSprite2D
+@onready var hurt_audio = $HurtAudioPlayer
+@onready var sword_audio = $SwordAudioPlayer
 @onready var camera = $"../Camera2D"
 @onready var collision_shape = $Hurtbox/CollisionShape2D
 @onready var hitbox_pivot = $HitboxPivot
@@ -172,6 +174,8 @@ func choose_attack_animation():
 		play_mode_animation("up-attack")
 	elif attack_direction == AttackDirection.DOWN and not is_on_floor():
 		play_mode_animation("down-attack")
+	
+	sword_audio.play()
 
 func take_damage(enemy_position):
 	collision_shape.disabled = true
@@ -202,6 +206,8 @@ func check_death():
 		died.emit()
 		await get_tree().create_timer(1).timeout
 		get_tree().change_scene_to_file("res://death_screen.tscn")
+	else:
+		hurt_audio.play()
 
 func play_mode_animation(animation):
 	if not rage_timer.is_stopped():
