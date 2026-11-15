@@ -37,7 +37,7 @@ var rage = 0
 var rage_multiplier = 1
 
 func _ready():
-	animation_player.play("idle")
+	play_mode_animation("idle")
 	animation_player.animation_finished.connect(_on_animation_finished)
 
 	var hitboxes = hitbox_pivot.get_children()
@@ -74,9 +74,9 @@ func _physics_process(delta: float) -> void:
 		var gravityMultiplier = 3 if not Input.is_action_pressed("jump") or velocity.y > -200 else 1
 		velocity.y += gravityMultiplier * gravity * delta
 	elif not is_zero_approx(velocity.x) and not animation_player.current_animation.ends_with("attack"):
-		animation_player.play("walk")
+		play_mode_animation("walk")
 	elif not animation_player.current_animation.ends_with("attack"):
-		animation_player.play("idle")
+		play_mode_animation("idle")
 	
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_speed
@@ -89,7 +89,7 @@ func _on_animation_finished(anim_name: String):
 	print("Animation done")
 
 	if anim_name.ends_with("attack"):
-		animation_player.play("idle")
+		play_mode_animation("idle")
 
 func _on_enemy_collision(body):
 	body.enemy_take_damage(damage * rage_multiplier)
@@ -158,11 +158,11 @@ func choose_attack_animation():
 		return
 
 	if attack_direction == AttackDirection.HORIZONTAL:
-		animation_player.play("horizontal-attack")
+		play_mode_animation("horizontal-attack")
 	elif attack_direction == AttackDirection.UP:
-		animation_player.play("up-attack")
+		play_mode_animation("up-attack")
 	elif attack_direction == AttackDirection.DOWN and not is_on_floor():
-		animation_player.play("down-attack")
+		play_mode_animation("down-attack")
 
 func take_damage(enemy_position):
 	collision_shape.disabled = true
@@ -186,3 +186,9 @@ func check_death():
 		died.emit()
 		await get_tree().create_timer(1).timeout
 		get_tree().change_scene_to_file("res://death_screen.tscn")
+
+func play_mode_animation(animation):
+	if not rage_timer.is_stopped():
+		animation_player.play("oni-" + animation)
+	else:
+		animation_player.play(animation)
