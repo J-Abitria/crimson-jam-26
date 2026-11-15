@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dctcrt5m1dqvq" path="res://player.tscn" id="3_ildd2"]
 [ext_resource type="Script" uid="uid://mm3vbql4brua" path="res://Assets/Scripts/twin.gd" id="4_pmmbh"]
 [ext_resource type="PackedScene" uid="uid://bw38dqreyqam3" path="res://twin.tscn" id="4_t5hr7"]
+[ext_resource type="PackedScene" uid="uid://ckr7tiefkmgeh" path="res://meters.tscn" id="7_q0b7o"]
 [ext_resource type="Script" uid="uid://ckcmoddi46y8c" path="res://Assets/Scripts/fade_out_player.gd" id="7_w7n3p"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_t5hr7"]
@@ -75,6 +76,10 @@ script = ExtResource("4_pmmbh")
 
 [node name="Player" parent="." unique_id=889811035 instance=ExtResource("3_ildd2")]
 position = Vector2(614, 535)
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1071208151]
+
+[node name="Meters" parent="UI" unique_id=1601996893 instance=ExtResource("7_q0b7o")]
 
 [node name="Fade" type="CanvasLayer" parent="." unique_id=256824718]
 

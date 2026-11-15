@@ -6,6 +6,8 @@ enum AttackDirection {
 	HORIZONTAL
 }
 
+signal health_changed(new_health)
+signal rage_changed(new_rage)
 signal died
 
 @export var speed = 500
@@ -27,6 +29,7 @@ signal died
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var knockback_velocity = Vector2.ZERO
+var rage = 0
 
 func _ready():
 	animation_player.play("idle")
@@ -70,6 +73,9 @@ func _on_animation_finished(anim_name: String):
 
 func _on_enemy_collision(body):
 	body.enemy_take_damage(5)
+	rage = rage + 2 if rage <= 98 else 100
+	rage_changed.emit(rage)
+
 	calculate_knockback(body.global_position, 0.5, 1)
 
 func _on_invincibility_timeout():
@@ -134,6 +140,10 @@ func choose_attack_animation():
 func take_damage(enemy_position):
 	collision_shape.disabled = true
 	health -= 1
+	health_changed.emit(health)
+	rage = rage + 5 if rage <= 95 else 100
+	rage_changed.emit(rage)
+
 	calculate_knockback(enemy_position, 2, 3)
 	check_death()
 
