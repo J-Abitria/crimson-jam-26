@@ -57,6 +57,14 @@ _data = {
 
 [node name="Battleground" type="Node2D" unique_id=971398247]
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=386061321]
+offset_left = -938.0
+offset_top = -684.0
+offset_right = -898.0
+offset_bottom = -644.0
+scale = Vector2(77.51974, 52.226128)
+color = Color(0, 0, 0, 1)
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=661351914]
 position = Vector2(580, 320)
 script = ExtResource("1_sjsww")

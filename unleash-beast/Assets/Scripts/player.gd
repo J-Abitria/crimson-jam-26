@@ -26,6 +26,7 @@ signal died
 @onready var collision_shape = $Hurtbox/CollisionShape2D
 @onready var hitbox_pivot = $HitboxPivot
 @onready var invincibility_timer = $InvincibilityTimer
+@onready var flash_timer = $FlashTimer
 @onready var rage_timer = $RageTimer
 @onready var collision_start_pos = collision_shape.position
 @onready var attack_direction = AttackDirection.HORIZONTAL
@@ -51,6 +52,10 @@ func _ready():
 	rage_timer.wait_time = 8
 	rage_timer.one_shot = true
 	rage_timer.timeout.connect(_on_rage_end)
+
+	flash_timer.wait_time = 0.1
+	flash_timer.one_shot = false
+	flash_timer.timeout.connect(_on_flash_start)
 
 func _process(_delta: float) -> void:
 	get_aiming_input()
@@ -102,11 +107,15 @@ func _on_enemy_collision(body):
 
 func _on_invincibility_timeout():
 	collision_shape.disabled = false
+	animation_sprite.visible = true
+	flash_timer.stop()
 
 func _on_rage_end():
 	animation_player.speed_scale = 1
 	rage_multiplier /= rage_boost_value
 
+func _on_flash_start():
+	animation_sprite.visible = not animation_sprite.visible
 
 func calculate_knockback(enemy_position, pogo_multiplier, base_multiplier):
 	var distance = global_position - enemy_position
@@ -169,6 +178,8 @@ func take_damage(enemy_position):
 	health -= 1
 	health_changed.emit(health)
 	rage_multiplier += .02
+	flash_white()
+	flash_timer.start()
 
 	if rage_timer.is_stopped():
 		rage = rage + 5 if rage <= 95 else 100
@@ -179,6 +190,11 @@ func take_damage(enemy_position):
 
 	camera.apply_shake(10.0)
 	invincibility_timer.start()
+
+func flash_white():
+	animation_sprite.modulate = Color(10, 10, 10, 10)
+	await get_tree().create_timer(0.1).timeout
+	animation_sprite.modulate = Color(1, 1, 1, 1)
 
 func check_death():
 	if health == 0:
