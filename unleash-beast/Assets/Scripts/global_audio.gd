@@ -8,15 +8,14 @@ extends AudioStreamPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	volume_db = AudioLevel.sound_effect_volume
 	player.died.connect(_on_player_death)
 	twin_1.enemy_died.connect(_on_enemy_death)
 	twin_2.enemy_died.connect(_on_enemy_death)
 
 func _on_player_death():
-	volume_db = -5
 	stream = player_death
 	play()
-	volume_db = 0
 
 func _on_enemy_death():
 	stream = enemy_death

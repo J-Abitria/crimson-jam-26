@@ -60,6 +60,10 @@ func _ready():
 	flash_timer.one_shot = false
 	flash_timer.timeout.connect(_on_flash_start)
 
+	hurt_audio.volume_db = AudioLevel.sound_effect_volume
+	sword_audio.volume_db = AudioLevel.sound_effect_volume
+	rage_audio = AudioLevel.sound_effect_volume
+
 func _process(_delta: float) -> void:
 	get_aiming_input()
 	log_attack_direction()

@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://bo8nntck2fwst" path="res://Assets/Scripts/enemy_manager.gd" id="9_tqegg"]
 [ext_resource type="Script" uid="uid://uueijnbqbhk5" path="res://Assets/Scripts/global_audio.gd" id="10_e84sg"]
 [ext_resource type="AudioStream" uid="uid://bia0ut8jvgcok" path="res://Assets/Sounds/Music/main-theme.wav" id="11_jwfr2"]
+[ext_resource type="Script" uid="uid://c3xuqs7safk1v" path="res://Assets/Scripts/music_player.gd" id="12_pogui"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_t5hr7"]
 resource_name = "Background"
@@ -118,3 +119,4 @@ script = ExtResource("10_e84sg")
 stream = ExtResource("11_jwfr2")
 volume_db = -20.0
 autoplay = true
+script = ExtResource("12_pogui")

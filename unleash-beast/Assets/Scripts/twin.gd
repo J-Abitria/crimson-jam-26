@@ -31,6 +31,7 @@ var was_on_floor = false
 
 func _ready() -> void:
 	animation_player.play("idle")
+	audio_player.volume_db = AudioLevel.sound_effect_volume
 	hurtbox.area_entered.connect(_on_player_collision)
 	timer.wait_time = 4
 	timer.one_shot = false

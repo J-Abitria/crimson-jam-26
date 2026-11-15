@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dro14oqvskvf6" path="res://Assets/Sprites/Play-Button-Hover.png" id="5_8vmu4"]
 [ext_resource type="Script" uid="uid://cxiij8yw585ud" path="res://Assets/Scripts/play_button.gd" id="6_tpml5"]
 [ext_resource type="Script" uid="uid://dj1rt2m37tt0b" path="res://Assets/Scriptscontrols_button.gd" id="7_jqemp"]
+[ext_resource type="Script" uid="uid://ceq1nq15coxfu" path="res://Assets/Scripts/settings_button.gd" id="8_013yr"]
 
 [sub_resource type="Gradient" id="Gradient_tpml5"]
 offsets = PackedFloat32Array(0, 0.57228917, 1)
@@ -89,3 +90,13 @@ offset_bottom = 380.0
 theme_override_font_sizes/font_size = 32
 text = "Controls"
 script = ExtResource("7_jqemp")
+
+[node name="Button2" type="Button" parent="." unique_id=554075506]
+layout_mode = 0
+offset_left = 456.0
+offset_top = 400.0
+offset_right = 696.0
+offset_bottom = 480.0
+theme_override_font_sizes/font_size = 32
+text = "Settings"
+script = ExtResource("8_013yr")
