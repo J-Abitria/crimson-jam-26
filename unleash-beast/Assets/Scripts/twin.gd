@@ -21,6 +21,7 @@ signal enemy_died
 @onready var attack_state = AttackState.IDLE
 @onready var animation_player = $AnimationPlayer
 @onready var animated_sprite = $AnimatedSprite2D
+@onready var audio_player = $AudioStreamPlayer2D
 
 var base_order = [AttackState.ROLL, AttackState.JUMP, AttackState.DASH]
 var attack_direction = 1
@@ -123,6 +124,7 @@ func reset_animation():
 
 func enemy_take_damage(amount):
 	flash_white()
+	audio_player.play()
 	health -= amount
 	check_enemy_death()
 
