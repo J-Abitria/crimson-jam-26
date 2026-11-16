@@ -25,6 +25,7 @@ signal enemy_removed
 @onready var audio_player = $AudioStreamPlayer2D
 
 var base_order = [AttackState.ROLL, AttackState.JUMP, AttackState.DASH]
+var bundle_warnings = ["bundle-roll", "bundle-jump", "bundle-dash"]
 var attack_direction = 1
 var num_attacks = 0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -59,13 +60,16 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _on_timer_timeout():
+	var chosen_attack = 0
 	if num_attacks < 3:
 		attack_state = base_order[num_attacks]
+		chosen_attack = num_attacks
 	else:
 		timer.wait_time = randf_range(2.5, 4) * thinking_reduction
-		attack_state = base_order[randi() % 3]
+		chosen_attack = randi() % 3
+		attack_state = base_order[chosen_attack]
 	
-	animation_player.play("bundle-up")
+	animation_player.play(bundle_warnings[chosen_attack])
 	await animation_player.animation_finished
 
 	num_attacks += 1
