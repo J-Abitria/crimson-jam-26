@@ -30,6 +30,7 @@ signal died
 @onready var hitbox_pivot = $HitboxPivot
 @onready var invincibility_timer = $InvincibilityTimer
 @onready var flash_timer = $FlashTimer
+@onready var jump_timer = $JumpTimer
 @onready var rage_timer = $RageTimer
 @onready var collision_start_pos = collision_shape.position
 @onready var attack_direction = AttackDirection.HORIZONTAL
@@ -59,6 +60,9 @@ func _ready():
 	flash_timer.wait_time = 0.1
 	flash_timer.one_shot = false
 	flash_timer.timeout.connect(_on_flash_start)
+
+	jump_timer.wait_time = 0.2
+	jump_timer.one_shot = true
 
 	hurt_audio.volume_db = AudioLevel.sound_effect_volume
 	sword_audio.volume_db = AudioLevel.sound_effect_volume
@@ -96,8 +100,13 @@ func _physics_process(delta: float) -> void:
 	elif not animation_player.current_animation.ends_with("attack"):
 		play_mode_animation("idle")
 	
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if is_on_floor() and not jump_timer.is_stopped():
 		velocity.y = jump_speed
+	elif Input.is_action_just_pressed("jump"):
+		if is_on_floor():
+			velocity.y = jump_speed
+		else:
+			jump_timer.start()
 
 	knockback_velocity = knockback_velocity.move_toward(Vector2.ZERO, knockback_decay * delta)
 	velocity += knockback_velocity

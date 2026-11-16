@@ -81,12 +81,10 @@ tile_set = SubResource("TileSet_g4v7s")
 [node name="Twin-1" parent="." unique_id=770635140 instance=ExtResource("4_t5hr7")]
 position = Vector2(308, 520)
 script = ExtResource("4_pmmbh")
-health = 5
 
 [node name="Twin-2" parent="." unique_id=290380116 instance=ExtResource("4_t5hr7")]
 position = Vector2(921, 521)
 script = ExtResource("4_pmmbh")
-health = 5
 
 [node name="Player" parent="." unique_id=889811035 instance=ExtResource("3_ildd2")]
 position = Vector2(614, 535)
