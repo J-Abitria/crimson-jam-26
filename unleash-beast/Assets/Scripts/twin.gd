@@ -76,6 +76,9 @@ func _on_attack_timer_timeout():
 		velocity = Vector2(attack_direction * roll_speed, dash_speed)
 
 func _on_player_collision(area_entered):
+	if health <= 0:
+		return
+		
 	area_entered.get_parent().take_damage.call_deferred(global_position)
 
 func process_attack():
@@ -125,8 +128,11 @@ func reset_animation():
 	animation_player.play("idle")
 
 func enemy_take_damage(amount):
-	flash_white()
+	if health <= 0:
+		return
+
 	health -= amount
+	flash_white()
 	check_enemy_death()
 
 func check_enemy_death():
