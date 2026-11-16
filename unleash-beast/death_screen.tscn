@@ -66,30 +66,42 @@ grow_vertical = 2
 texture = SubResource("GradientTexture2D_y0ggs")
 
 [node name="Label" type="Label" parent="." unique_id=978331541]
-layout_mode = 0
-offset_top = 6.0
-offset_right = 1152.0
-offset_bottom = 94.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -576.0
+offset_right = 576.0
+offset_bottom = 88.0
+grow_horizontal = 2
 theme_override_font_sizes/font_size = 64
 text = "L Bozo"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ReplayButton" type="Button" parent="." unique_id=1233735973]
-layout_mode = 0
-offset_left = 476.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
 offset_top = 164.0
-offset_right = 676.0
+offset_right = 100.0
 offset_bottom = 195.0
+grow_horizontal = 2
 text = "Try Again?"
 script = ExtResource("1_if853")
 
 [node name="MenuButton" type="Button" parent="." unique_id=928939015]
-layout_mode = 0
-offset_left = 477.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
 offset_top = 231.0
-offset_right = 677.0
+offset_right = 100.0
 offset_bottom = 262.0
+grow_horizontal = 2
 text = "Return to Menu"
 script = ExtResource("2_6bi5g")
 

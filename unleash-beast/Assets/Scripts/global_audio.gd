@@ -3,8 +3,8 @@ extends AudioStreamPlayer
 @onready var player = $"../Player"
 @onready var twin_1 = $"../Twin-1"
 @onready var twin_2 = $"../Twin-2"
-@onready var player_death = AudioStreamWAV.load_from_file("res://Assets/Sounds/Player/Player-Death.wav")
-@onready var enemy_death = AudioStreamWAV.load_from_file("res://Assets/Sounds/Twin/Twin-Death.wav")
+@onready var player_death = load("res://Assets/Sounds/Player/Player-Death.wav")
+@onready var enemy_death = load("res://Assets/Sounds/Twin/Twin-Death.wav")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

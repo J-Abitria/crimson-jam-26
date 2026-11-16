@@ -83,31 +83,43 @@ texture_hover = ExtResource("5_8vmu4")
 script = ExtResource("6_tpml5")
 
 [node name="Button" type="Button" parent="." unique_id=429736249]
-layout_mode = 0
-offset_left = 456.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -120.0
 offset_top = 300.0
-offset_right = 696.0
+offset_right = 120.0
 offset_bottom = 380.0
+grow_horizontal = 2
 theme_override_font_sizes/font_size = 32
 text = "Controls"
 script = ExtResource("7_jqemp")
 
 [node name="Button2" type="Button" parent="." unique_id=554075506]
-layout_mode = 0
-offset_left = 456.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -120.0
 offset_top = 400.0
-offset_right = 696.0
+offset_right = 120.0
 offset_bottom = 480.0
+grow_horizontal = 2
 theme_override_font_sizes/font_size = 32
 text = "Settings"
 script = ExtResource("8_013yr")
 
 [node name="Button3" type="Button" parent="." unique_id=1093748945]
-layout_mode = 0
-offset_left = 456.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -120.0
 offset_top = 500.0
-offset_right = 696.0
+offset_right = 120.0
 offset_bottom = 580.0
+grow_horizontal = 2
 theme_override_font_sizes/font_size = 32
 text = "Credits"
 script = ExtResource("9_8vmu4")

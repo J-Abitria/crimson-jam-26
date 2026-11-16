@@ -41,11 +41,15 @@ theme_override_font_sizes/font_size = 64
 text = "Credits"
 
 [node name="Label2" type="Label" parent="." unique_id=918310969]
-layout_mode = 0
-offset_left = 152.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -424.0
 offset_top = 123.0
-offset_right = 1020.0
+offset_right = 444.0
 offset_bottom = 623.0
+grow_horizontal = 2
 theme_override_font_sizes/font_size = 24
 text = "Created by James Abitria for the 2026 Crimson Game Jam.
 
@@ -60,10 +64,14 @@ UI Font: Kiwi Soda, from dafont.com
 Sound Effects: Created from Bfxr.net"
 
 [node name="MenuButton" type="Button" parent="." unique_id=945420521]
-layout_mode = 0
-offset_left = 150.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -426.0
 offset_top = 533.0
-offset_right = 950.0
+offset_right = 374.0
 offset_bottom = 564.0
+grow_horizontal = 2
 text = "Return to Menu"
 script = ExtResource("1_nm7lk")

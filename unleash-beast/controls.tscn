@@ -41,11 +41,15 @@ theme_override_font_sizes/font_size = 64
 text = "How to Play"
 
 [node name="Label2" type="Label" parent="." unique_id=1820698477]
-layout_mode = 0
-offset_left = 152.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -424.0
 offset_top = 123.0
-offset_right = 1020.0
+offset_right = 444.0
 offset_bottom = 623.0
+grow_horizontal = 2
 theme_override_font_sizes/font_size = 24
 text = "LEFT ARROW/RIGHT ARROW - Move left/right
 UP ARROW/DOWN ARROW - Aim up/down
@@ -58,10 +62,14 @@ meter is full, your attacks deal more damage. Your damage also increases
 the more hits you've taken. "
 
 [node name="MenuButton" type="Button" parent="." unique_id=1670521747]
-layout_mode = 0
-offset_left = 172.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -404.0
 offset_top = 482.0
-offset_right = 972.0
+offset_right = 396.0
 offset_bottom = 513.0
+grow_horizontal = 2
 text = "Return to Menu"
 script = ExtResource("1_gpdjo")
