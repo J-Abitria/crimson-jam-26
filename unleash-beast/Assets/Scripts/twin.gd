@@ -8,6 +8,7 @@ enum AttackState {
 }
 
 signal enemy_died
+signal enemy_removed
 
 @export var roll_speed = 800
 @export var jump_horizontal_speed = 600
@@ -24,10 +25,13 @@ signal enemy_died
 @onready var audio_player = $AudioStreamPlayer2D
 
 var base_order = [AttackState.ROLL, AttackState.JUMP, AttackState.DASH]
+var bundle_warnings = ["bundle-roll", "bundle-jump", "bundle-dash"]
 var attack_direction = 1
 var num_attacks = 0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var was_on_floor = false
+var thinking_reduction = 1
+var speed_bonus = 1
 
 func _ready() -> void:
 	animation_player.play("idle")
@@ -41,6 +45,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	animated_sprite.scale.x = -1 if global_position.x <= 600 else 1
+	thinking_reduction = 0.8 if health < 300 else 1.0
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -55,13 +60,16 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _on_timer_timeout():
+	var chosen_attack = 0
 	if num_attacks < 3:
 		attack_state = base_order[num_attacks]
+		chosen_attack = num_attacks
 	else:
-		timer.wait_time = randf_range(2.5, 4)
-		attack_state = base_order[randi() % 3]
+		timer.wait_time = randf_range(2.5, 4) * thinking_reduction
+		chosen_attack = randi() % 3
+		attack_state = base_order[chosen_attack]
 	
-	animation_player.play("bundle-up")
+	animation_player.play(bundle_warnings[chosen_attack])
 	await animation_player.animation_finished
 
 	num_attacks += 1
@@ -75,6 +83,9 @@ func _on_attack_timer_timeout():
 		velocity = Vector2(attack_direction * roll_speed, dash_speed)
 
 func _on_player_collision(area_entered):
+	if health <= 0:
+		return
+
 	area_entered.get_parent().take_damage.call_deferred(global_position)
 
 func process_attack():
@@ -124,13 +135,21 @@ func reset_animation():
 	animation_player.play("idle")
 
 func enemy_take_damage(amount):
-	flash_white()
+	if health <= 0:
+		return
+
 	health -= amount
+	flash_white()
 	check_enemy_death()
 
 func check_enemy_death():
 	if health <= 0:
+		timer.stop()
+		attack_timer.stop()
 		enemy_died.emit()
+		animation_player.play("die")
+		await animation_player.animation_finished
+		enemy_removed.emit()
 		queue_free()
 	else:
 		audio_player.play()

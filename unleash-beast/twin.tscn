@@ -2,21 +2,81 @@
 
 [ext_resource type="Texture2D" uid="uid://cl5unkmwx8ics" path="res://Assets/Animations/Twin-Bundle/Twin-Bundle1.png" id="1_218tw"]
 [ext_resource type="Texture2D" uid="uid://o0k2hh2y0rbm" path="res://Assets/Animations/Twin-Idle/Twin-Idle1.png" id="1_qc846"]
+[ext_resource type="Texture2D" uid="uid://cbeafdftik8wv" path="res://Assets/Animations/Twin-Bundle-Dash/Twin-Bundle-Dash1.png" id="1_xp8al"]
 [ext_resource type="Texture2D" uid="uid://divxpr2qbq6pu" path="res://Assets/Animations/Twin-Bundle/Twin-Bundle2.png" id="2_mv07x"]
+[ext_resource type="Texture2D" uid="uid://drmsb6x8bbcdd" path="res://Assets/Animations/Twin-Bundle-Dash/Twin-Bundle-Dash2.png" id="2_pu8uh"]
 [ext_resource type="Texture2D" uid="uid://2sns2ph06xu2" path="res://Assets/Animations/Twin-Idle/Twin-Idle2.png" id="2_ragtu"]
 [ext_resource type="Texture2D" uid="uid://dxaehwo4ihk7h" path="res://Assets/Animations/Twin-Bundle/Twin-Bundle3.png" id="3_867os"]
+[ext_resource type="Texture2D" uid="uid://c3ati05w2b4jo" path="res://Assets/Animations/Twin-Bundle-Dash/Twin-Bundle-Dash3.png" id="3_b6ffb"]
 [ext_resource type="Texture2D" uid="uid://cr5pf5nahpt1y" path="res://Assets/Animations/Twin-Idle/Twin-Idle3.png" id="3_s1jrl"]
+[ext_resource type="Texture2D" uid="uid://cksb7fewk7d4i" path="res://Assets/Animations/Twin-Die/Twin-Die1.png" id="4_fehql"]
+[ext_resource type="Texture2D" uid="uid://c5yhr3hp1lfca" path="res://Assets/Animations/Twin-Bundle-Jump/Twin-Bundle-Jump1.png" id="4_hfdg4"]
+[ext_resource type="Texture2D" uid="uid://chaphpfhwpt1i" path="res://Assets/Animations/Twin-Bundle-Jump/Twin-Bundle-Jump2.png" id="5_f6ax7"]
+[ext_resource type="Texture2D" uid="uid://ih6lp1r20bla" path="res://Assets/Animations/Twin-Die/Twin-Die2.png" id="5_fsrvw"]
+[ext_resource type="Texture2D" uid="uid://drgkhkmwsa5jm" path="res://Assets/Animations/Twin-Bundle-Jump/Twin-Bundle-Jump3.png" id="6_a615u"]
+[ext_resource type="Texture2D" uid="uid://l2aodvli85pc" path="res://Assets/Animations/Twin-Die/Twin-Die3.png" id="6_aleql"]
+[ext_resource type="Texture2D" uid="uid://ciu3j5h26o75r" path="res://Assets/Animations/Twin-Die/Twin-Die4.png" id="7_c1nj6"]
+[ext_resource type="Texture2D" uid="uid://dq6futlluvyim" path="res://Assets/Animations/Twin-Bundle-Roll/Twin-Bundle-Roll1.png" id="7_sm722"]
 [ext_resource type="Texture2D" uid="uid://ba88wl0t7ols" path="res://Assets/Animations/Twin-Rolling/Twin-Rolling1.png" id="7_w230r"]
+[ext_resource type="Texture2D" uid="uid://ddhxfr3hxas3e" path="res://Assets/Animations/Twin-Bundle-Roll/Twin-Bundle-Roll2.png" id="8_7qlkn"]
+[ext_resource type="Texture2D" uid="uid://bjm4aoidcwxw3" path="res://Assets/Animations/Twin-Die/Twin-Die5.png" id="8_caiw6"]
 [ext_resource type="Texture2D" uid="uid://df0ebjtf5gsnq" path="res://Assets/Animations/Twin-Rolling/Twin-Rolling2.png" id="8_fi0m7"]
+[ext_resource type="Texture2D" uid="uid://b6nfq4o27tcqj" path="res://Assets/Animations/Twin-Bundle-Roll/Twin-Bundle-Roll3.png" id="9_5rkkd"]
+[ext_resource type="Texture2D" uid="uid://6aup4sty6uvw" path="res://Assets/Animations/Twin-Die/Twin-Die6.png" id="9_gfnks"]
 [ext_resource type="Texture2D" uid="uid://dq01rtn5mnrym" path="res://Assets/Animations/Twin-Rolling/Twin-Rolling3.png" id="9_treeg"]
+[ext_resource type="Texture2D" uid="uid://84p7cyrldx7s" path="res://Assets/Animations/Twin-Die/Twin-Die7.png" id="10_68gdn"]
 [ext_resource type="Texture2D" uid="uid://b23tuadw470ru" path="res://Assets/Animations/Twin-Rolling/Twin-Rolling4.png" id="10_stots"]
 [ext_resource type="AudioStream" uid="uid://qnjmu5ciew6d" path="res://Assets/Sounds/Twin/SpectralFreeze0.wav" id="11_pkidh"]
+[ext_resource type="Texture2D" uid="uid://babbogoufpt3l" path="res://Assets/Animations/Twin-Die/Twin-Die8.png" id="11_uu8aw"]
 [ext_resource type="AudioStream" uid="uid://bv67im8m52hb" path="res://Assets/Sounds/Twin/SpectralFreeze1.wav" id="12_87q4y"]
+[ext_resource type="Texture2D" uid="uid://byviflpsywbkf" path="res://Assets/Animations/Twin-Die/Twin-Die9.png" id="12_p60wf"]
 [ext_resource type="AudioStream" uid="uid://brkf1c0j00spd" path="res://Assets/Sounds/Twin/SpectralFreeze2.wav" id="13_50mjy"]
 [ext_resource type="AudioStream" uid="uid://tb8htx7g38x2" path="res://Assets/Sounds/Twin/SpectralFreeze3.wav" id="14_mf8fl"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_xp8al")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_pu8uh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_b6ffb")
+}],
+"loop": 1,
+"name": &"bundle-dash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_hfdg4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_f6ax7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_a615u")
+}],
+"loop": 1,
+"name": &"bundle-jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_sm722")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7qlkn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_5rkkd")
+}],
+"loop": 1,
+"name": &"bundle-roll",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_218tw")
@@ -30,6 +90,38 @@ animations = [{
 "loop": 0,
 "name": &"bundle-up",
 "speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_fehql")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_fsrvw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_aleql")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_c1nj6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_caiw6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_gfnks")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_68gdn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_uu8aw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_p60wf")
+}],
+"loop": 0,
+"name": &"die",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -90,6 +182,34 @@ tracks/1/keys = {
 "values": [&"idle"]
 }
 
+[sub_resource type="Animation" id="Animation_pu8uh"]
+resource_name = "bundle-dash"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"bundle-dash"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.166, 0.332),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
 [sub_resource type="Animation" id="Animation_w230r"]
 resource_name = "bundle-down"
 length = 0.5
@@ -118,6 +238,62 @@ tracks/1/keys = {
 "values": [2, 1, 0]
 }
 
+[sub_resource type="Animation" id="Animation_b6ffb"]
+resource_name = "bundle-jump"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"bundle-jump"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.166, 0.332),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_hfdg4"]
+resource_name = "bundle-roll"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"bundle-roll"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.166, 0.332),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
 [sub_resource type="Animation" id="Animation_idp53"]
 resource_name = "bundle-up"
 length = 0.5
@@ -144,6 +320,34 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [&"bundle-up"]
+}
+
+[sub_resource type="Animation" id="Animation_xp8al"]
+resource_name = "die"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"die"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
 }
 
 [sub_resource type="Animation" id="Animation_mv07x"]
@@ -207,8 +411,12 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_867os"]
 _data = {
 &"RESET": SubResource("Animation_218tw"),
+&"bundle-dash": SubResource("Animation_pu8uh"),
 &"bundle-down": SubResource("Animation_w230r"),
+&"bundle-jump": SubResource("Animation_b6ffb"),
+&"bundle-roll": SubResource("Animation_hfdg4"),
 &"bundle-up": SubResource("Animation_idp53"),
+&"die": SubResource("Animation_xp8al"),
 &"idle": SubResource("Animation_mv07x"),
 &"rolling": SubResource("Animation_pkidh")
 }

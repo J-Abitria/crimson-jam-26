@@ -30,6 +30,8 @@ signal died
 @onready var hitbox_pivot = $HitboxPivot
 @onready var invincibility_timer = $InvincibilityTimer
 @onready var flash_timer = $FlashTimer
+@onready var jump_timer = $JumpTimer
+@onready var attack_timer = $AttackTimer
 @onready var rage_timer = $RageTimer
 @onready var collision_start_pos = collision_shape.position
 @onready var attack_direction = AttackDirection.HORIZONTAL
@@ -39,6 +41,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var knockback_velocity = Vector2.ZERO
 var rage = 0
 var rage_multiplier = 1
+var cached_direction = AttackDirection.HORIZONTAL
 
 func _ready():
 	play_mode_animation("idle")
@@ -60,16 +63,25 @@ func _ready():
 	flash_timer.one_shot = false
 	flash_timer.timeout.connect(_on_flash_start)
 
+	jump_timer.wait_time = 0.2
+	jump_timer.one_shot = true
+
+	attack_timer.wait_time = 0.2
+	attack_timer.one_shot = true
+
 	hurt_audio.volume_db = AudioLevel.sound_effect_volume
 	sword_audio.volume_db = AudioLevel.sound_effect_volume
-	rage_audio = AudioLevel.sound_effect_volume
+	rage_audio.volume_db = AudioLevel.sound_effect_volume
 
 func _process(_delta: float) -> void:
-	get_aiming_input()
+	if health <= 0:
+		return
+
+	attack_direction = get_aiming_input()
 	log_attack_direction()
 
 	if Input.is_action_just_pressed("attack"):
-		choose_attack_animation()
+		choose_attack_animation(attack_direction)
 	
 	if Input.is_action_just_pressed("activate") and rage == 100:
 		rage = 0
@@ -80,6 +92,9 @@ func _process(_delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if health <= 0:
+		return
+	
 	get_movement_input()
 
 	if not is_on_floor():
@@ -90,18 +105,25 @@ func _physics_process(delta: float) -> void:
 	elif not animation_player.current_animation.ends_with("attack"):
 		play_mode_animation("idle")
 	
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if is_on_floor() and not jump_timer.is_stopped():
 		velocity.y = jump_speed
+	elif Input.is_action_just_pressed("jump"):
+		if is_on_floor():
+			velocity.y = jump_speed
+		else:
+			jump_timer.start()
 
 	knockback_velocity = knockback_velocity.move_toward(Vector2.ZERO, knockback_decay * delta)
 	velocity += knockback_velocity
 	move_and_slide()
 
 func _on_animation_finished(anim_name: String):
-	print("Animation done")
-
 	if anim_name.ends_with("attack"):
-		play_mode_animation("idle")
+		if not attack_timer.is_stopped():
+			get_movement_input()
+			choose_attack_animation(cached_direction)
+		elif health > 0:
+			play_mode_animation("idle")
 
 func _on_enemy_collision(body):
 	body.enemy_take_damage(damage * rage_multiplier)
@@ -150,9 +172,9 @@ func get_aiming_input():
 	var vertical_aim = Input.get_axis("aim_down", "aim_up")
 	
 	if not is_zero_approx(vertical_aim):
-		attack_direction = AttackDirection.UP if vertical_aim == 1 else AttackDirection.DOWN
-	else:
-		attack_direction = AttackDirection.HORIZONTAL
+		return AttackDirection.UP if vertical_aim == 1 else AttackDirection.DOWN
+	
+	return AttackDirection.HORIZONTAL
 
 func log_attack_direction():
 	if attack_direction == previous_direction:
@@ -170,15 +192,17 @@ func log_attack_direction():
 	print("Aiming " + output)
 	previous_direction = attack_direction
 
-func choose_attack_animation():
+func choose_attack_animation(direction):
 	if animation_player.current_animation.ends_with("attack"):
+		cached_direction = get_aiming_input()
+		attack_timer.start()
 		return
 
-	if attack_direction == AttackDirection.HORIZONTAL:
+	if direction == AttackDirection.HORIZONTAL:
 		play_mode_animation("horizontal-attack")
-	elif attack_direction == AttackDirection.UP:
+	elif direction == AttackDirection.UP:
 		play_mode_animation("up-attack")
-	elif attack_direction == AttackDirection.DOWN and not is_on_floor():
+	elif direction == AttackDirection.DOWN and not is_on_floor():
 		play_mode_animation("down-attack")
 	
 	sword_audio.play()
@@ -209,6 +233,7 @@ func flash_white():
 func check_death():
 	if health == 0:
 		invincibility_timer.stop()
+		play_mode_animation("die")
 		died.emit()
 		await get_tree().create_timer(1).timeout
 		get_tree().change_scene_to_file("res://death_screen.tscn")
