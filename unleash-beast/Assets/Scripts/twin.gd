@@ -8,6 +8,7 @@ enum AttackState {
 }
 
 signal enemy_died
+signal enemy_removed
 
 @export var roll_speed = 800
 @export var jump_horizontal_speed = 600
@@ -130,7 +131,12 @@ func enemy_take_damage(amount):
 
 func check_enemy_death():
 	if health <= 0:
+		timer.stop()
+		attack_timer.stop()
 		enemy_died.emit()
+		animation_player.play("die")
+		await animation_player.animation_finished
+		enemy_removed.emit()
 		queue_free()
 	else:
 		audio_player.play()

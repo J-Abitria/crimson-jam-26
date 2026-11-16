@@ -9,8 +9,8 @@ signal enemies_defeated
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	twin_1.enemy_died.connect(_on_enemy_death)
-	twin_2.enemy_died.connect(_on_enemy_death)
+	twin_1.enemy_removed.connect(_on_enemy_death)
+	twin_2.enemy_removed.connect(_on_enemy_death)
 
 
 func _on_enemy_death():

@@ -1,15 +1,24 @@
 [gd_scene format=3 uid="uid://dctcrt5m1dqvq"]
 
 [ext_resource type="Script" uid="uid://d26jeceg8qi4w" path="res://Assets/Scripts/player.gd" id="1_op7ga"]
+[ext_resource type="Texture2D" uid="uid://dcb40h7t71f4s" path="res://Assets/Animations/Player-Die/Player-Die1.png" id="2_m6nxt"]
 [ext_resource type="Texture2D" uid="uid://dgpsgknia3o7w" path="res://Assets/Animations/Player-Down-Attack/Player-Down-Attack1.png" id="2_q13i1"]
 [ext_resource type="Texture2D" uid="uid://bgjijd4vyqrwe" path="res://Assets/Animations/Player-Down-Attack/Player-Down-Attack2.png" id="3_pylmc"]
+[ext_resource type="Texture2D" uid="uid://8suk35jhxvsx" path="res://Assets/Animations/Player-Die/Player-Die2.png" id="3_ym00c"]
+[ext_resource type="Texture2D" uid="uid://dd0liwdd0c81n" path="res://Assets/Animations/Player-Die/Player-Die3.png" id="4_ee2o4"]
 [ext_resource type="Texture2D" uid="uid://oglg75q83vf" path="res://Assets/Animations/Player-Down-Attack/Player-Down-Attack3.png" id="4_pbfsw"]
 [ext_resource type="Texture2D" uid="uid://dcbogr5tdxmcv" path="res://Assets/Animations/Player-Down-Attack/Player-Down-Attack4.png" id="5_5tmop"]
+[ext_resource type="Texture2D" uid="uid://pjggg5q8dv83" path="res://Assets/Animations/Player-Die/Player-Die4.png" id="5_vie4p"]
+[ext_resource type="Texture2D" uid="uid://dtjb5fi537dtu" path="res://Assets/Animations/Player-Die/Player-Die5.png" id="6_0jj5r"]
 [ext_resource type="Texture2D" uid="uid://bwqwdix5n3awc" path="res://Assets/Animations/Player-Down-Attack/Player-Down-Attack5.png" id="6_7ahtn"]
 [ext_resource type="Texture2D" uid="uid://cdv2k3drdaq72" path="res://Assets/Animations/Player-Horizontal-Attack/Player-Horizontal-Attack1.png" id="7_7lmhl"]
+[ext_resource type="Texture2D" uid="uid://icnwa57pn1b4" path="res://Assets/Animations/Player-Die/Player-Die6.png" id="7_77e46"]
+[ext_resource type="Texture2D" uid="uid://cnlmah0rbcaqs" path="res://Assets/Animations/Player-Die/Player-Die7.png" id="8_cy2ki"]
 [ext_resource type="Texture2D" uid="uid://cqqoignoyx3r2" path="res://Assets/Animations/Player-Horizontal-Attack/Player-Horizontal-Attack2.png" id="8_dx0e4"]
+[ext_resource type="Texture2D" uid="uid://dn62njlt5nesm" path="res://Assets/Animations/Player-Die/Player-Die8.png" id="9_04cqw"]
 [ext_resource type="Texture2D" uid="uid://64a25qipqcnt" path="res://Assets/Animations/Player-Horizontal-Attack/Player-Horizontal-Attack3.png" id="9_jm5j8"]
 [ext_resource type="Texture2D" uid="uid://owbsvi3yjf3s" path="res://Assets/Animations/Player-Horizontal-Attack/Player-Horizontal-Attack4.png" id="10_7hik5"]
+[ext_resource type="Texture2D" uid="uid://bwcxn2nin5ebf" path="res://Assets/Animations/Player-Die/Player-Die9.png" id="10_vihdy"]
 [ext_resource type="Texture2D" uid="uid://dacworooycexh" path="res://Assets/Animations/Player-Idle/Player-Idle1.png" id="11_qtqh7"]
 [ext_resource type="Texture2D" uid="uid://434pbxplqx1v" path="res://Assets/Animations/Player-Idle/Player-Idle2.png" id="12_2wuci"]
 [ext_resource type="Texture2D" uid="uid://c80r1igjrspyx" path="res://Assets/Animations/Player-Idle/Player-Idle3.png" id="13_iruf7"]
@@ -38,12 +47,21 @@
 [ext_resource type="Texture2D" uid="uid://dlregwjtrihwo" path="res://Assets/Animations/Oni-Horizontal-Attack/Oni-Horizontal-Attack3.png" id="21_pfmca"]
 [ext_resource type="Texture2D" uid="uid://bx2mxpe6i7myf" path="res://Assets/Animations/Damaged-Particles/Damaged-Particles5.png" id="22_7hik5"]
 [ext_resource type="Texture2D" uid="uid://djwri3lud2fng" path="res://Assets/Animations/Oni-Horizontal-Attack/Oni-Horizontal-Attack4.png" id="22_76oay"]
+[ext_resource type="Texture2D" uid="uid://ouyj2sosrbc3" path="res://Assets/Animations/Oni-Die/Oni-Die1.png" id="23_7c55y"]
 [ext_resource type="Script" uid="uid://cbf8nuvpen080" path="res://Assets/Scripts/particle_player.gd" id="23_7lmhl"]
+[ext_resource type="Texture2D" uid="uid://bm6s678kaamjc" path="res://Assets/Animations/Oni-Die/Oni-Die2.png" id="24_hoal8"]
+[ext_resource type="Texture2D" uid="uid://day7lqjxmkwun" path="res://Assets/Animations/Oni-Die/Oni-Die3.png" id="25_htija"]
 [ext_resource type="Texture2D" uid="uid://bjax2gicvb7d3" path="res://Assets/Animations/Oni-Up-Attack/Oni-Up-Attack1.png" id="26_b4uyv"]
+[ext_resource type="Texture2D" uid="uid://bm6lwjyht81o6" path="res://Assets/Animations/Oni-Die/Oni-Die4.png" id="26_he65s"]
+[ext_resource type="Texture2D" uid="uid://dihhgfpp4mfi1" path="res://Assets/Animations/Oni-Die/Oni-Die5.png" id="27_c0yt3"]
 [ext_resource type="Texture2D" uid="uid://c2h3e8qjxto8u" path="res://Assets/Animations/Oni-Up-Attack/Oni-Up-Attack2.png" id="27_tw8ou"]
+[ext_resource type="Texture2D" uid="uid://b6ssodq7xhayk" path="res://Assets/Animations/Oni-Die/Oni-Die6.png" id="28_uckl6"]
 [ext_resource type="Texture2D" uid="uid://c3kpuf1bit1ug" path="res://Assets/Animations/Oni-Up-Attack/Oni-Up-Attack3.png" id="28_ygbnx"]
+[ext_resource type="Texture2D" uid="uid://7b5j2ke7cwl7" path="res://Assets/Animations/Oni-Die/Oni-Die7.png" id="29_5ihbc"]
 [ext_resource type="Texture2D" uid="uid://cdny7asculkx5" path="res://Assets/Animations/Oni-Up-Attack/Oni-Up-Attack4.png" id="29_v2t6f"]
 [ext_resource type="Texture2D" uid="uid://bvc6b6a8n4m6t" path="res://Assets/Animations/Oni-Walk/Oni-Walk1.png" id="30_l3lcn"]
+[ext_resource type="Texture2D" uid="uid://c46ja10wmm17q" path="res://Assets/Animations/Oni-Die/Oni-Die8.png" id="30_sc53x"]
+[ext_resource type="Texture2D" uid="uid://b84f8eoh7ua74" path="res://Assets/Animations/Oni-Die/Oni-Die9.png" id="31_ro7of"]
 [ext_resource type="Texture2D" uid="uid://dthwf0t8a8q07" path="res://Assets/Animations/Oni-Walk/Oni-Walk2.png" id="31_xry5e"]
 [ext_resource type="Texture2D" uid="uid://owsmtilor0lu" path="res://Assets/Animations/Oni-Walk/Oni-Walk3.png" id="32_h6w8y"]
 [ext_resource type="Texture2D" uid="uid://dsc417jf1f6g0" path="res://Assets/Animations/Oni-Walk/Oni-Walk4.png" id="33_yem3p"]
@@ -59,6 +77,38 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yf5fn"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_m6nxt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ym00c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ee2o4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_vie4p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_0jj5r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_77e46")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_cy2ki")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_04cqw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_vihdy")
+}],
+"loop": 0,
+"name": &"die",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_q13i1")
@@ -127,6 +177,38 @@ animations = [{
 "loop": 1,
 "name": &"idle",
 "speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_7c55y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_hoal8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_htija")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_he65s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_c0yt3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_uckl6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_5ihbc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_sc53x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_ro7of")
+}],
+"loop": 0,
+"name": &"oni-die",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -432,6 +514,46 @@ tracks/11/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_dn2kn"]
+resource_name = "die"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"die"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_jf5ul"]
 resource_name = "horizontal-attack"
 length = 0.33
@@ -623,6 +745,46 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [&"idle"]
+}
+
+[sub_resource type="Animation" id="Animation_4tmhn"]
+resource_name = "oni-die"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"oni-die"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_vl8ci"]
@@ -1041,9 +1203,11 @@ tracks/2/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pbaqw"]
 _data = {
 &"RESET": SubResource("Animation_f6vvn"),
+&"die": SubResource("Animation_dn2kn"),
 &"down-attack": SubResource("Animation_jf5ul"),
 &"horizontal-attack": SubResource("Animation_pbaqw"),
 &"idle": SubResource("Animation_fgihj"),
+&"oni-die": SubResource("Animation_4tmhn"),
 &"oni-down-attack": SubResource("Animation_vl8ci"),
 &"oni-horizontal-attack": SubResource("Animation_ieltc"),
 &"oni-idle": SubResource("Animation_tkwlq"),

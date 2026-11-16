@@ -65,6 +65,9 @@ func _ready():
 	rage_audio = AudioLevel.sound_effect_volume
 
 func _process(_delta: float) -> void:
+	if health <= 0:
+		return
+
 	get_aiming_input()
 	log_attack_direction()
 
@@ -80,6 +83,9 @@ func _process(_delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if health <= 0:
+		return
+	
 	get_movement_input()
 
 	if not is_on_floor():
@@ -98,9 +104,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _on_animation_finished(anim_name: String):
-	print("Animation done")
-
-	if anim_name.ends_with("attack"):
+	if anim_name.ends_with("attack") and health > 0:
 		play_mode_animation("idle")
 
 func _on_enemy_collision(body):
@@ -209,6 +213,7 @@ func flash_white():
 func check_death():
 	if health == 0:
 		invincibility_timer.stop()
+		play_mode_animation("die")
 		died.emit()
 		await get_tree().create_timer(1).timeout
 		get_tree().change_scene_to_file("res://death_screen.tscn")
