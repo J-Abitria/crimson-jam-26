@@ -29,6 +29,8 @@ var attack_direction = 1
 var num_attacks = 0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var was_on_floor = false
+var thinking_reduction = 1
+var speed_bonus = 1
 
 func _ready() -> void:
 	animation_player.play("idle")
@@ -42,6 +44,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	animated_sprite.scale.x = -1 if global_position.x <= 600 else 1
+	thinking_reduction = 0.8 if health < 300 else 1.0
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -59,7 +62,7 @@ func _on_timer_timeout():
 	if num_attacks < 3:
 		attack_state = base_order[num_attacks]
 	else:
-		timer.wait_time = randf_range(2.5, 4)
+		timer.wait_time = randf_range(2.5, 4) * thinking_reduction
 		attack_state = base_order[randi() % 3]
 	
 	animation_player.play("bundle-up")
@@ -78,7 +81,7 @@ func _on_attack_timer_timeout():
 func _on_player_collision(area_entered):
 	if health <= 0:
 		return
-		
+
 	area_entered.get_parent().take_damage.call_deferred(global_position)
 
 func process_attack():
