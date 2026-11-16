@@ -9,6 +9,8 @@
 [ext_resource type="Script" uid="uid://dj1rt2m37tt0b" path="res://Assets/Scriptscontrols_button.gd" id="7_jqemp"]
 [ext_resource type="Script" uid="uid://ceq1nq15coxfu" path="res://Assets/Scripts/settings_button.gd" id="8_013yr"]
 [ext_resource type="Script" uid="uid://dlcy7r8bu3nyb" path="res://Assets/Scripts/credits_button.gd" id="9_8vmu4"]
+[ext_resource type="Texture2D" uid="uid://d0a3jwstrkdu5" path="res://Assets/Sprites/Controls-Button.png" id="9_xfn3p"]
+[ext_resource type="Texture2D" uid="uid://cu1mf3q24ocyo" path="res://Assets/Sprites/Controls-Button-Hover.png" id="10_rhgbh"]
 
 [sub_resource type="Gradient" id="Gradient_tpml5"]
 offsets = PackedFloat32Array(0, 0.57228917, 1)
@@ -82,20 +84,6 @@ texture_pressed = ExtResource("4_013yr")
 texture_hover = ExtResource("5_8vmu4")
 script = ExtResource("6_tpml5")
 
-[node name="Button" type="Button" parent="." unique_id=429736249]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -120.0
-offset_top = 300.0
-offset_right = 120.0
-offset_bottom = 380.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 32
-text = "Controls"
-script = ExtResource("7_jqemp")
-
 [node name="Button2" type="Button" parent="." unique_id=554075506]
 layout_mode = 1
 anchors_preset = 5
@@ -123,3 +111,18 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 32
 text = "Credits"
 script = ExtResource("9_8vmu4")
+
+[node name="ControlsButton" type="TextureButton" parent="." unique_id=223382556]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -120.0
+offset_top = 300.0
+offset_right = 120.0
+offset_bottom = 380.0
+grow_horizontal = 2
+texture_normal = ExtResource("9_xfn3p")
+texture_pressed = ExtResource("4_013yr")
+texture_hover = ExtResource("10_rhgbh")
+script = ExtResource("7_jqemp")
